@@ -1,5 +1,10 @@
+/* font family reference: Onest (sans serif), Manrope (sans serif), Roboto (sans serif), Roboto Serif (serif) */
 
 .App {
   text-align: center;
+  font-family: 'Roboto Serif', serif;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
-

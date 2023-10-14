@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { useState } from "react";
 import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
@@ -7,6 +7,7 @@ import { Switch } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Main from "./components/Main/Main"
+import Header from "./components/Header/Header"
 
 function App() {
     
@@ -28,6 +29,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
             <div className="App">
+                <Header />
                 <Main />
                 <h1>PawsOn.Life</h1>
             </div>

@@ -1,9 +1,6 @@
 /* GLOBAL VARIABLES FOR ALL OF APP */
+/* font family reference: Onest (sans serif), Manrope (sans serif), Roboto (sans serif), Roboto Serif (serif) */
 
-@font-face {
-  font-family: "Manrope", sans-serif;
-  src: url("https://fonts.googleapis.com/css2?family=Manrope&family=Onest&family=Roboto&family=Roboto+Serif:opsz@8..144&display=swap")
-}
 
 /* DEFINING
  COLOR SCHEME */
