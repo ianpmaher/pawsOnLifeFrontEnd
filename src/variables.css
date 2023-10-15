@@ -1,0 +1,18 @@
+/* GLOBAL VARIABLES FOR ALL OF APP */
+/* font family reference: Onest (sans serif), Manrope (sans serif), Roboto (sans serif), Roboto Serif (serif) */
+
+
+/* DEFINING
+ COLOR SCHEME */
+:root {
+    --black-root-color: rgb(0,18,25);
+    --blue-sapphire-color: rgb(0,95,115);
+    --green-viridian-color: rgb(10,147,150);
+    --green-light-blue-color: rgb(148,210,189);
+    --champagne-color: rgb(233,216,166);
+    --yellow-gamboge-color: rgb(238,155,0);
+    --orange-alloy-color: rgb(202,103,2);
+    --orange-rust-color: rgb(187,62,3);
+    --red-rufous-color: rgb(174,32,18);
+    --red-ruby-color: rgb(155,34,38);
+}
