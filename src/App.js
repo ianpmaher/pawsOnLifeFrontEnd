@@ -1,4 +1,6 @@
 import React from 'react'
+// import ROUTER
+import { Route, Routes } from 'react-router-dom'
 import { useState } from "react";
 import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
@@ -8,6 +10,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Main from "./components/Main/Main"
 import Header from "./components/Header/Header"
+import Footer from './components/Footer/Footer';
 
 function App() {
     
@@ -31,7 +34,7 @@ function App() {
             <div className="App">
                 <Header />
                 <Main />
-                <h1>PawsOn.Life</h1>
+                <Footer/>
             </div>
         </ThemeProvider>
     );
