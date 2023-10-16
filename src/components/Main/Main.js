@@ -8,6 +8,7 @@ const MainContainer = styled.div`
     background-color: var(--red-ruby-color);
     width: 80vw;
     height: 100%;
+    border-radius: 20px;
 `
 
 const Main = (props) => {

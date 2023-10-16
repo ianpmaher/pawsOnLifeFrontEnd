@@ -1,8 +1,11 @@
-/* font family reference: Onest (sans serif), Manrope (sans serif), Roboto (sans serif), Roboto Serif (serif) */
+/* font family reference: Onest (sans serif), Manrope (sans serif), Nunito (sans serif) Roboto (sans serif), Roboto Serif (serif) */
 
+html {
+    scroll-behavior: smooth;
+}
 .App {
   text-align: center;
-  font-family: 'Roboto Serif', serif;
+  font-family: 'Nunito', sans-serif;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
