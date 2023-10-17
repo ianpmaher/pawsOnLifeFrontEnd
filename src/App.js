@@ -11,6 +11,8 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Main from "./components/Main/Main"
 import Header from "./components/Header/Header"
 import Footer from './components/Footer/Footer';
+import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
+import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 
 function App() {
     
@@ -39,7 +41,8 @@ function App() {
                 <Header theme={theme} />
                 <Routes>
                     <Route path="/" element={<Main />} />
-                    
+                    <Route path="/trails" element={<MapsTrailsPage />} />
+                    <Route path="/profile" element={<UserProfilePage/>} />
                 </Routes>
                 <Footer/>
                 
