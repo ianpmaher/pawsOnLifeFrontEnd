@@ -5,7 +5,7 @@ import { useState } from "react";
 import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Switch from "@mui/material";
+import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Main from "./components/Main/Main"
@@ -44,7 +44,6 @@ function App() {
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
                 </Routes>
-                <Footer/>
                 
             </div>
         </ThemeProvider>
