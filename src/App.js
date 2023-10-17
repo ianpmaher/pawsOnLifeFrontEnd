@@ -32,12 +32,17 @@ function App() {
     )
 
     return (
+        // using Route component to specify routes
         <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
             <div className="App">
                 <Header theme={theme} />
-                <Main />
+                <Routes>
+                    <Route path="/" element={<Main />} />
+                    
+                </Routes>
                 <Footer/>
+                
             </div>
         </ThemeProvider>
     );
