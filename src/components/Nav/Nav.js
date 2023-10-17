@@ -1,48 +1,62 @@
 // ALL DA ROUTES
-import React from "react";
+import * as React from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import { useState } from "react";
 import styled from "styled-components";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
-// https://mui.com/material-ui/api/link/
 import Link from "@mui/material/Link";
 import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu"
 import MenuItem from "@mui/material/MenuItem";
-import Stack from "@mui/material/Stack";
-import Theme from "@mui/material/styles";
-import ThemeProvider from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
+// https://mui.com/material-ui/api/link/
 import Typography from "@mui/material/Typography";
 
-
 // ================ //
-// ARRAYS OF WHICH PAGES WE WANT TO USE
+// ARRAYS OF PAGES WE WANT TO USE
 // ================ //
-const pages = ["Home", "Trails & Maps"];
-const settings = ["My Profile", "Account", "Logout"];
+const pages = [
+    {
+        title: "Home",
+        destination: "/",
+    },
+    {
+        title: "Maps & Trails",
+        destination: "/trails",
+    },
+    {
+        title: "Log In",
+        destination: "/login",
+    },
+    {
+        title: "Registration",
+        destination: "/register",
+    },
+    {
+        title: "Account",
+        destination: "/profile",
+    },
+    {
+        title: "Log Out",
+        destination: "/logout",
+    },
+];
 
-const appBarLabel = (label) => {
-    return (
-        <Toolbar>
-            <IconButton aria-label="menu" color="inherit" edge="start">
-                <MenuItem />
-            </IconButton>
-            <Typography variant="h5" noWrap component="div" sx={{ flexGrow: 1 }}>
-                {label}
-            </Typography>
-        </Toolbar>
-    );
-};
+const FlexContainer = styled.div`
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 0 1rem;
+`
 
 // https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu
 // passing down ColorTheme (Dark Mode) as a prop
 const Nav = (props) => {
     /* declare state for open/close Nav menu */
-    const [anchorElemNav, setAnchorElemNav] = React.useState(null);
+    const [anchorElemNav, setAnchorElemNav] = useState(null);
 
     /* functions to handle state for open/close the two menus*/
     const handleOpenMenuNav = (event) => {
@@ -53,29 +67,23 @@ const Nav = (props) => {
     };
 
     return (
-        <AppBar position="static" {...props}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="ReactRouterLink"
-                        to="/"
-                        sx={{
-                            display: { xs: "none", md: "flex" },
-                            fontWeight: 700,
-                            textDecoration: "none",
-                        }}
-                    ></Typography>
+       
+        <AppBar position="static" {...props} sx={{ borderRadius: 5 }}>
+            <FlexContainer>
+                <Toolbar disableGutters >
+                    {/* in MUI, sx props are inline styles. "m" is margin */}
+                    {/* https://mui.com/system/getting-started/the-sx-prop/ */}
+                    {/* everything in Box container will display unless mobile, then hamburger menu */}
                     <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
                         <IconButton
                             size="large"
-                            aria-label="account of user"
+                            edge="start"
+                            aria-label="site navigation"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenMenuNav}
                         >
-                            {pages[0]}
+                            <MenuIcon/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -89,46 +97,50 @@ const Nav = (props) => {
                                 vertical: "top",
                                 horizontal: "left",
                             }}
-                            open={Boolean(setAnchorElemNav)}
+                            open={Boolean(anchorElemNav)}
                             onClose={handleCloseMenuNav}
+                            sx={{
+                                display: { xs: "block", md: "none"},
+                            }}
                         >
                             {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseMenuNav}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                <MenuItem key={page.title} onClick={handleCloseMenuNav}>
+                                    <Link variant="h5" noWrap component="a" to={page.destination} href={page.destination}>
+                                        <Typography textAlign="center">{page.title}</Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    <Typography
+                    {/* <Link
                         variant="h5"
                         noWrap
-                        component="ReactRouterLink"
+                        component="a"
                         to="/"
                         href="/"
                         sx={{
-                            display: { md: "flex" },
+                            mr: 2,
+                            display: { xs: 'none', md: "flex" },
                             fontWeight: 700,
                             textDecoration: "none",
                         }}
                     >
-                        MENU
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+                        PAWS ON LIFE
+                    </Link> */}
+                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
+                            <Link noWrap component="a" to={page.destination} href={page.destination}
+                                key={page.title}
                                 onClick={handleCloseMenuNav}
-                                sx={{ my: 2, color: "white", display: "block" }}
+                                underline="hover"
+                                sx={{ my: 2, color: "white", padding: 1 }}
                             >
-                                {page}
-                            </Button>
+                                {page.title}
+                            </Link>
                         ))}
                     </Box>
                 </Toolbar>
-            </Container>
-            <Link to="/">HOME</Link>
-            <Link to="/trails">TRAILS & MAPS</Link>
-            <Link to="/login">LOGIN / CREATE ACCOUNT</Link>
+            </FlexContainer>
         </AppBar>
     );
 };
