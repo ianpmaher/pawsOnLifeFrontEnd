@@ -15,9 +15,10 @@ const FlexList = styled.ul`
     flex-flow: row wrap;
 `
 const Social = styled.img`
-    width: 70px;
-    height: 70px;
-    margin: 0 2rem;
+    width: 50px;
+    height: 50px;
+    margin: 0 1rem;
+    border-radius: 50%;
 `
 
 const Footer = (props) => {
@@ -26,7 +27,7 @@ const Footer = (props) => {
             <footer>
                 <FlexList>
                     <li>
-                        <a href="https://github.com/ianpmaher/pawsOnLifeFrontEnd">
+                        <a href="https://github.com/ianpmaher/pawsOnLifeFrontEnd" target="_blank" rel="noreferrer noopener">
                             <Social
                                 src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                                 alt="github logo"
@@ -34,7 +35,7 @@ const Footer = (props) => {
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/ianpmaher/pawsOnLifeBackEnd">
+                        <a href="https://github.com/ianpmaher/pawsOnLifeBackEnd" target="_blank" rel="noreferrer noopener">
                             <Social
                                 src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
                                 alt="github logo"

@@ -2,7 +2,7 @@ import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails
 
 import styled from "styled-components";
 
-const MapsTrailsPage = (props) => {
+const UserProfilePage = (props) => {
   return (
     <div>
       <FooterUserTrails />
@@ -10,4 +10,4 @@ const MapsTrailsPage = (props) => {
   )
 }
 
-export default MapsTrailsPage;
+export default UserProfilePage;
