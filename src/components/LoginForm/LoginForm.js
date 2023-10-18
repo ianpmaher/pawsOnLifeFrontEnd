@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import PetsIcon from '@mui/icons-material/Pets';
 import { useState } from "react";
 
 const LoginContainer = styled.div`
@@ -6,19 +7,41 @@ const LoginContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
-    gap: 0.5rem;
+    margin: 1rem; auto;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 80vw;
+    height: 30vh;
+    gap: 0.25rem;
+    background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%)
 `
 const LoginUser = styled.input`
     height: 5vh;
+    margin: 0.25rem auto;
+    width: 15rem;
+    border-radius: 5px;
 `
 
 const LoginPass = styled.input`
     min-height: 5vh;
+    margin: 0.25rem auto;
+    width: 15rem;
+    border-radius: 5px;
 `
 
 const LoginButton = styled.button`
-
+    font-size: 1.2rem;
+    font-family: "Nunito", sans-serif;
+    padding: 0.5rem;
+    color: white;
+    border: 1px solid var(--green-light-blue-color);
+    border-radius: 20px;
+    background-color: var(--blue-sapphire-color);
+    cursor: pointer;
+    transition: opacity 1s ease-in-out;
+    &:hover {
+        opacity: 0.8;
+    }
 `
 
 let loggedInAs = null;
@@ -51,7 +74,10 @@ const LoginForm = (props) => {
             <LoginContainer>
                 <LoginUser name="email" placeholder="Login Email" />
                 <LoginPass name="password" placeholder="Password" type="password"/>
-                <LoginButton onClick={handleLogin} >Login</LoginButton>
+                <LoginButton onClick={handleLogin} aria-label="login">
+                    {/* <PetsIcon/> */} {/* this would be so insanely cute but bad accessibility*/}
+                    Login
+                </LoginButton>
             </LoginContainer>}
         </>
     );
