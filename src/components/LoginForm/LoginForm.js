@@ -2,14 +2,19 @@ import styled from "styled-components";
 import { useState } from "react";
 
 const LoginContainer = styled.div`
-
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    gap: 0.5rem;
 `
 const LoginUser = styled.input`
-
+    height: 5vh;
 `
 
 const LoginPass = styled.input`
-
+    min-height: 5vh;
 `
 
 const LoginButton = styled.button`

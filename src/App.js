@@ -8,9 +8,10 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Main from "./components/Main/Main"
+import Main from "./components/Main/Main";
+import HomePage from './pages/HomePage/HomePage';
 import Header from "./components/Header/Header"
-import Footer from './components/Footer/Footer';
+import LoginPage from "./pages/LoginPage/LoginPage"
 import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 
@@ -40,7 +41,8 @@ function App() {
             <div className="App">
                 <Header theme={theme} />
                 <Routes>
-                    <Route path="/" element={<Main />} />
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
                 </Routes>
