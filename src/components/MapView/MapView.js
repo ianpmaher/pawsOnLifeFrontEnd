@@ -1,29 +1,20 @@
-import { GoogleMap, useLoadScript } from "@react-google-maps/api";
-// import "dotenv/config";
+import { useEffect } from "react";
 
-const MapView = ({ center, zoom }) => {
-  const { isLoaded, isNotLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.API_KEY,
-  });
+const MapView = ({ selectedPlaceId, searchResults }) => {
+  const updateMapForSelectedPlace = () => {
+    if (selectedPlaceId !== null) {
+      const map = new window.google.maps.Map(document.getElementById("map"), {
+        center: searchResults[selectedPlaceId].geometry.location,
+        zoom: 15,
+      });
+    }
+  };
 
-  if (isNotLoaded) return "Error loading Google Maps";
+  useEffect(() => {
+    updateMapForSelectedPlace();
+  }, [selectedPlaceId, searchResults]);
 
-  return (
-    <div style={{ width: "50%", height: "400px" }}>
-      {isLoaded ? (
-        <GoogleMap
-          id="map"
-          mapContainerStyle={{
-            width: "100%",
-            height: "100%",
-          }}
-          center={center}
-          zoom={zoom}
-        />
-      ) : (
-        "Loading..."
-      )}
-    </div>
-  );
+  return <div id="map" style={{ height: "400px", width: "50%" }}></div>;
 };
+
 export default MapView;

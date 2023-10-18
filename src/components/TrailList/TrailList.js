@@ -1,17 +1,16 @@
-const TrailList = ({ results, onResultClick }) => {
+const TrailList = ({ searchResults, setSelectedPlaceId }) => {
   return (
     <div id="results">
-      {results.map((result) => (
-        <p key={result.place_id}>
-          <a
-            href="#"
-            onClick={() => onResultClick(result.place_id)}
-            data-placeid={result.place_id}
-          >
+      <ul>
+        {searchResults.map((result, index) => (
+          <li key={index} onClick={() => setSelectedPlaceId(index)}>
             {result.name}
-          </a>
-        </p>
-      ))}
+          </li>
+        ))}
+      </ul>
+      {searchResults.length === 0 && (
+        <p>No hiking trails found near this location.</p>
+      )}
     </div>
   );
 };
