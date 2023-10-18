@@ -1,7 +1,7 @@
 // ALL DA ROUTES
 import * as React from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
@@ -26,24 +26,30 @@ const pages = [
     {
         title: "Maps & Trails",
         destination: "/trails",
-    },
-    {
-        title: "Log In",
-        destination: "/login",
-    },
-    {
-        title: "Registration",
-        destination: "/register",
-    },
-    {
-        title: "Account",
-        destination: "/profile",
-    },
-    {
-        title: "Log Out",
-        destination: "/logout",
-    },
+    }
 ];
+if(localStorage.getItem("token") !== null){
+        pages.push(
+            {
+                title: "Account",
+                destination: "/profile",
+            },
+        {
+            title: "Log Out",
+            destination: "/logout",
+        })
+    }else{
+        pages.push({
+            title: "Log In",
+            destination: "/login",
+        },
+        {
+            title: "Registration",
+            destination: "/register",
+        })
+    }
+
+    // TODO: Move login/out/register/account to context
 
 const FlexContainer = styled.div`
     display: flex;
@@ -65,6 +71,7 @@ const Nav = (props) => {
     const handleCloseMenuNav = () => {
         setAnchorElemNav(null);
     };
+    
 
     return (
        

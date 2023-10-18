@@ -1,22 +1,15 @@
-import { useState } from "react";
-
-const SearchForm = ({ onSearch }) => {
-  const [location, setLocation] = useState("");
-
-  const handleSearch = () => {
-    onSearch(location);
-  };
-
+const SearchForm = ({ location, handleLocationChange, searchHikingTrails }) => {
   return (
-    <div id="search-form">
-      <input
-        type="text"
-        id="location"
-        placeholder="Enter address"
-        value={location}
-        onChange={(event) => setLocation(event.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
+    <div id="search-container">
+      <div id="search-form">
+        <input
+          type="text"
+          id="location"
+          placeholder="Enter your address"
+          value={location}
+          onChange={handleLocationChange}
+        />
+      </div>
     </div>
   );
 };
