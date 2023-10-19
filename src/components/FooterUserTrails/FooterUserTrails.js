@@ -1,10 +1,11 @@
 import { useState } from "react";
 /* mui */
-import BottomNavigation from "@mui/material/BottomNavigation";
-import BottomNavigationAction from "@mui/material/BottomNavigationAction";
+
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HistoryIcon from "@mui/icons-material/History";
 import NearMeIcon from '@mui/icons-material/NearMe';
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 /* styled components */
 import styled from "styled-components";
 
@@ -23,20 +24,18 @@ const FooterUserTrails = (props) => {
   // useState to define user's choice of which is clicked
   const [value, setValue] = useState(0);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue)
+  }
+
+  // update 10/19/23: mui Tab/Tabs instead of BottomNavigation
   return (
     <FooterContainer>
-      <BottomNavigation
-        showLabels
-        // when user chooses new icon, value changes
-        value={value}
-        onChange={( event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <BottomNavigationAction label="History" icon={<HistoryIcon />} />;
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />;
-        <BottomNavigationAction label="Nearby" icon={<NearMeIcon />} />
-      </BottomNavigation  >
+      <Tabs value={value} onChange={handleChange} aria-label="icon label tabs" sx={{backgroundColor: "rgba(0,0,0,0.6)", borderRadius: "20px"}}>
+        <Tab icon={<HistoryIcon />} label="History" />
+        <Tab icon={<FavoriteIcon />} label="Favorites" />
+        <Tab icon={<NearMeIcon />} label="Nearby" />
+      </Tabs>
     </FooterContainer>
   )
 }

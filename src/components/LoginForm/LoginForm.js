@@ -10,7 +10,7 @@ const LoginContainer = styled.div`
     margin: 1rem; auto;
     padding: 2rem;
     border-radius: 20px;
-    width: 50vw;
+    max-width: 50;
     height: 100%;
     gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
@@ -19,12 +19,13 @@ const LoginContainer = styled.div`
 const LoginUser = styled.input`
     height: 5vh;
     margin: 0.25rem auto;
-    width: 30rem;
+    min-width: 20vw;
     border-radius: 5px;
-    box-shadow: 0 0 2rem rgba(0,0,0,0.25);
+    box-shadow: 0 0 2rem rgba(0,0,0,0.55);
     overflow:hidden;
     letter-spacing: 2px;
     padding: 0.25rem;
+    transition: 0.9s all ease-in-out;
 
     &:focus {
         outline: none;
@@ -34,12 +35,13 @@ const LoginUser = styled.input`
 const LoginPass = styled.input`
     min-height: 5vh;
     margin: 0.25rem auto;
-    width: 30rem;
+    min-width: 20vw;
     border-radius: 5px;
-    box-shadow: 0 0 2rem rgba(0,0,0,0.25);
+    box-shadow: 0 0 2rem rgba(0,0,0,0.55);
     overflow: hidden;
     letter-spacing: 2px;
     padding: 0.25rem;
+    transition: 0.9s all ease-in-out;
     
     &:focus {
         outline: none;
