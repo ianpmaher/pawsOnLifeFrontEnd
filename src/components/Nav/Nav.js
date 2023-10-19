@@ -4,7 +4,6 @@ import { Link as ReactRouterLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";

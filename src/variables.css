@@ -22,12 +22,15 @@
     --bark-light-color: rgb(243,232,217);
     --bark-shadowed-color:rgb(153,147,138);
     --bark-dark-color: rgb(59,65,57);
-    background: linear-gradient(270deg, var(--black-root-color) 0%, var(--green-viridian-color) 100%);
+    --blue-deep-color: rgb(22, 26, 43);
+    --blue-navy-color: rgb(59, 62, 96);
 
     /* container background */
-    --background-gradient: var(--black-root-color);
+    --background-gradient: linear-gradient(110deg, var(--orange-alloy-color) 0%, var(--orange-rust-color) 33%, var(--champagne-color) 100%);
+
+    --background-container-gradient: linear-gradient(110deg, var(--black-root-color) 0%, var(--blue-navy-color) 100%);
 
     /* sun radial gradient */
-    --background-sun-gradient: radial-gradient(circle 10rem at 25% 33%, white, yellow, lightyellow, aqua)
+    --background-sun-gradient: radial-gradient(circle 10rem at 92% 13%, white, yellow, lightyellow, aqua);
 
 }

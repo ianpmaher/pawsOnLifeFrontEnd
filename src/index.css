@@ -11,6 +11,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* this fixed weird footer issue */
   height: 100vh;
+  background: var(--background-gradient)
 }
 
 code {

@@ -6,6 +6,7 @@ const HeaderContainer = styled.header`
     display: flex;
     flex-flow: column wrap;
     justify-content: space-around;
+    margin: auto auto 0.25rem auto;
 `;
 
 const HeaderText = styled.h1`

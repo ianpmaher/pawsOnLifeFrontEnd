@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import PetsIcon from '@mui/icons-material/Pets';
 import { useState } from "react";
 import "./LoginForm.css"
 
@@ -11,7 +10,7 @@ const LoginContainer = styled.div`
     margin: 1rem; auto;
     padding: 2rem;
     border-radius: 20px;
-    width: 80vw;
+    width: 50vw;
     height: 100%;
     gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);

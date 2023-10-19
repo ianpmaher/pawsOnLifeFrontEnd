@@ -33,6 +33,7 @@ const SearchHikingTrails = ({ location, onSearchResults }) => {
     });
   };
 
+//   return <button onClick={searchHikingTrails}>Search</button>;
   return <button onClick={searchHikingTrails}>Search</button>;
 };
 

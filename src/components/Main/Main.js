@@ -1,14 +1,11 @@
 import styled from 'styled-components';
 import PetsIcon from '@mui/icons-material/Pets';
-import Hero from '../Hero/Hero';
 
 const MainContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    background: var(--background-gradient);
-    width: 80vw;
     height: 100%;
     border-radius: 20px;
 `
@@ -35,6 +32,10 @@ const ImgCard = styled.img`
     height: auto;
     max-width: 20rem;
     max-height: 20rem;
+    @media (max-width: 768px) {
+        max-width: 10rem;
+        max-height: 10rem;
+    }
 `
 
 const Main = (props) => {
@@ -42,7 +43,6 @@ const Main = (props) => {
     /*  */
     return (
         <MainContainer>
-            <Hero />
             <Row>
                 <Card>
                     <PetsIcon />

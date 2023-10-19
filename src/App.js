@@ -8,7 +8,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Main from "./components/Main/Main";
 import HomePage from './pages/HomePage/HomePage';
 import Header from "./components/Header/Header"
 import LoginPage from "./pages/LoginPage/LoginPage"
@@ -46,7 +45,6 @@ function App() {
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
                 </Routes>
-                
             </div>
         </ThemeProvider>
     );
