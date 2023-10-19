@@ -1,5 +1,7 @@
-import Footer from "../../components/Footer/Footer";
+import styled from "styled-components";
 import Main from "../../components/Main/Main";
+import Footer from "../../components/Footer/Footer";
+
 
 const HomePage = (props) => {
     return (

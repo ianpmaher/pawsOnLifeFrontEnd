@@ -38,7 +38,7 @@ function App() {
         // using Route component to specify routes
         <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
-            <div className="App">
+            <div className="App" theme={theme}>
                 <Header theme={theme} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />

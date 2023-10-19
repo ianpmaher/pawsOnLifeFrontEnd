@@ -1,0 +1,8 @@
+.input-area {
+    border: 2px solid #eee;
+    transition: box-shadow, border-color 0.3s;
+}
+.input-area:focus {
+    border-color: var(--blue-sapphire-color);
+    box-shadow: 0 1px 0 0px #26A69B;
+}

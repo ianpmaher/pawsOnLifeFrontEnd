@@ -15,4 +15,19 @@
     --orange-rust-color: rgb(187,62,3);
     --red-rufous-color: rgb(174,32,18);
     --red-ruby-color: rgb(155,34,38);
+
+    --green-dark-color: rgb(61, 76, 46);
+    --yellow-sun-color: rgb(248,212,73);
+    --green-lighter-color: rgb(158,199,90);
+    --bark-light-color: rgb(243,232,217);
+    --bark-shadowed-color:rgb(153,147,138);
+    --bark-dark-color: rgb(59,65,57);
+    background: linear-gradient(270deg, var(--black-root-color) 0%, var(--green-viridian-color) 100%);
+
+    /* container background */
+    --background-gradient: var(--black-root-color);
+
+    /* sun radial gradient */
+    --background-sun-gradient: radial-gradient(circle 10rem at 25% 33%, white, yellow, lightyellow, aqua)
+
 }

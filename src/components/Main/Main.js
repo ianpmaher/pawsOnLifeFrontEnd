@@ -1,12 +1,13 @@
 import styled from 'styled-components';
 import PetsIcon from '@mui/icons-material/Pets';
+import Hero from '../Hero/Hero';
 
 const MainContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--red-ruby-color);
+    background: var(--background-gradient);
     width: 80vw;
     height: 100%;
     border-radius: 20px;
@@ -26,7 +27,14 @@ const Card = styled.div`
     background-color: var(--blue-sapphire-color);
     padding: 1rem;
     border-radius: 20px;
-    
+    margin: 0.5rem auto;
+`
+
+const ImgCard = styled.img`
+    width: 100%;
+    height: auto;
+    max-width: 20rem;
+    max-height: 20rem;
 `
 
 const Main = (props) => {
@@ -34,6 +42,7 @@ const Main = (props) => {
     /*  */
     return (
         <MainContainer>
+            <Hero />
             <Row>
                 <Card>
                     <PetsIcon />
@@ -47,7 +56,7 @@ const Main = (props) => {
             </Row>
             <Row >
                 <Card>
-                    <img src='https://img.freepik.com/premium-psd/dog-with-opened-mouth-isolated-transparent-background_927015-532.jpg' alt="dog" /> 
+                    <ImgCard src='https://img.freepik.com/premium-psd/dog-with-opened-mouth-isolated-transparent-background_927015-532.jpg' alt="dog" /> 
                 </Card>
             </Row>
             

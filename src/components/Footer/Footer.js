@@ -2,9 +2,15 @@ import styled from "styled-components";
 import './Footer.css'
 
 const FooterContainer = styled.div`
+    margin: 1rem auto auto auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 1;
 `;
 
 const FlexList = styled.ul`
