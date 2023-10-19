@@ -6,13 +6,15 @@ const HeroContainer = styled.div`
     font-family: "Roboto Serif", serif;
     max-width: 80vw;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 1rem;
-    place-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2rem;
     align-items: center;
-    
+    @media (max-width: 768px) {
+        flex-flow: column wrap;
+        gap: 0.5rem;
+    }
 `;
 const HeroText = styled.p`
     font-size: 1.5rem;
@@ -28,24 +30,27 @@ const HeroText = styled.p`
 const FlexContainer = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
+    max-width: 30vw;
+    @media (max-width: 768px) {
+        max-width: 100%;
+    }
 `;
 
 const ImgCard = styled.img`
-    max-height: 80%;
-    max-width: 80%;
+    max-height: 25vh;
+    max-width: 25vw;
     border-radius: 20px;
 `;
 
 const Hero = (props) => {
     return (
-        <>
-            <HeroContainer>
-                <FlexContainer>
-                    <HeroText> Connecting humans and their animal companions with the natural world.</HeroText>
+        <HeroContainer>
+            <FlexContainer>
+                <HeroText> Connecting humans and their animal companions with the natural world.</HeroText>
                 </FlexContainer>
-                <ImgCard src="https://i.imgur.com/9PMNlbO.png" alt="doggy" />
-            </HeroContainer>
-        </>
+            <ImgCard src="https://i.imgur.com/9PMNlbO.png" alt="doggy" />
+        </HeroContainer>
     );
 };
 

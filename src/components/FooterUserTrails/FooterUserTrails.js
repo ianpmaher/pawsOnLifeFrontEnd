@@ -9,7 +9,7 @@ import Tabs from "@mui/material/Tabs";
 /* styled components */
 import styled from "styled-components";
 
-const FooterContainer = styled.footer`
+const FooterContainer = styled.div`
   display: flex;
   flex-flow: row wrap;
   align-items: center;
