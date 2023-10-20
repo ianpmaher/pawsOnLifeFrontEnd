@@ -6,11 +6,12 @@ html {
 .App {
   text-align: center;
   font-family: 'Nunito', sans-serif;
-  display: flex;
+  /* display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   width: 100vw;
   height: 100%;
-  background: var(--background-gradient)
+  min-height: 100vh;
+  background: var(--background-gradient);
 }

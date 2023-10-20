@@ -13,6 +13,7 @@ const HomePageContainer = styled.div`
     border-radius: 20px;
     padding: 1rem 5rem 10rem 5rem;
     width: 80vw;
+    margin: 0 auto;
     @media (max-width: 768px) {
         padding: 1rem 2rem 5rem 2rem;
     }

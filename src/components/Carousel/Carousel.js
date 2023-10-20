@@ -37,12 +37,15 @@ const TrailCard = ({title, url, content}) => {
 
 const CarouselEl = (props) => {
     return (
-        <Carousel>
-            {props.trails.map((trail, index) => (
-                <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+        <div style={{maxWidth:"49vw", minWidth:"30vw", margin:"0 auto"}}>
+            <Carousel showThumbs={false}>
+            {props.trails?.map((trail, index) => (
+                <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} />
             ))}
             
-        </Carousel>
+            </Carousel>
+        </div>
+        
     );
 }
 

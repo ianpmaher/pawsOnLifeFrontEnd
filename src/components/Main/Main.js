@@ -14,7 +14,7 @@ const MainContainer = styled.div`
 const Row = styled.div`
     display: flex;
     flex-flow: row wrap;
-    gap: 2rem;
+    gap: 1rem;
 `
 
 const Card = styled.div`
@@ -23,9 +23,9 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--blue-sapphire-color);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 20px;
-    margin: 0.5rem auto;
+    margin: 0.25rem auto;
 `
 
 const ImgCard = styled.img`
