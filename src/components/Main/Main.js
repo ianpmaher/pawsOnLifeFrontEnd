@@ -6,13 +6,14 @@ const MainContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
     height: 100%;
     border-radius: 20px;
 `
 
 const Row = styled.div`
     display: flex;
-    flex-flow: column-wrap;
+    flex-flow: row wrap;
     gap: 2rem;
 `
 
@@ -38,6 +39,17 @@ const ImgCard = styled.img`
     }
 `
 
+/* Props! */
+const TrailCard = ({title, url, content}) => {
+    return (
+        <Card>
+            <h3>{title}</h3>
+            <ImgCard src={url} alt={title}/>
+            <p>{content}</p>
+        </Card>
+    )
+}
+
 const Main = (props) => {
     /* I have these placeholders for now, just looking at margins and stuff */
     /*  */
@@ -50,14 +62,11 @@ const Main = (props) => {
                 <Card>
                     <PetsIcon />
                 </Card>
-                <Card>
-                    <p>Hiking</p>
-                </Card>
             </Row>
-            <Row >
-                <Card>
-                    <ImgCard src='https://img.freepik.com/premium-psd/dog-with-opened-mouth-isolated-transparent-background_927015-532.jpg' alt="dog" /> 
-                </Card>
+            <Row>
+                {props.trails.map((trail, index) => (
+                    <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+                ))}
             </Row>
             
         </MainContainer>

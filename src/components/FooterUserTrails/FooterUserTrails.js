@@ -22,7 +22,7 @@ const FooterContainer = styled.div`
 // docs for "Tab Panel" : https://v4.mui.com/components/tabs/
 
 const TabPanel = (props) => {
-    const { children, value, index, ...other } = props;
+    const { children, value, index } = props;
     return (
         <div
             role="tabpanel"

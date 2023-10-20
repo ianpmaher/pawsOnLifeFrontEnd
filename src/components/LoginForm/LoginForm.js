@@ -17,7 +17,7 @@ const LoginContainer = styled.div`
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
     position: relative;
 `
-const LoginUser = styled.input`
+const LoginField = styled.input`
     height: 5vh;
     margin: 0.25rem auto;
     min-width: 20vw;
@@ -28,22 +28,6 @@ const LoginUser = styled.input`
     padding: 0.25rem;
     transition: 0.9s all ease-in-out;
 
-    &:focus {
-        outline: none;
-    }
-`
-
-const LoginPass = styled.input`
-    min-height: 5vh;
-    margin: 0.25rem auto;
-    min-width: 20vw;
-    border-radius: 5px;
-    box-shadow: 0 0 2rem rgba(0,0,0,0.55);
-    overflow: hidden;
-    letter-spacing: 2px;
-    padding: 0.25rem;
-    transition: 0.9s all ease-in-out;
-    
     &:focus {
         outline: none;
     }
@@ -93,9 +77,9 @@ const LoginForm = (props) => {
             {username && <LoginContainer>Logged in as {username}</LoginContainer>}
             {!username &&
             <LoginContainer>
-                <LoginUser name="email" placeholder="Login Email" className="input-area" />
+                <LoginField name="email" placeholder="Login Email" className="input-area" />
                 <FancyBorder></FancyBorder>
-                <LoginPass name="password" placeholder="Password" type="password" className="input-area" />
+                <LoginField name="password" placeholder="Password" type="password" className="input-area" />
                 <Button onClick={handleLogin} aria-label="login">
                     Login
                 </Button>

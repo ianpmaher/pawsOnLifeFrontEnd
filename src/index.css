@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%;
 }
 body {
   margin: 0;
@@ -11,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   /* this fixed weird footer issue */
   height: 100vh;
-  background: var(--background-gradient)
+  /* background: var(--background-gradient) */
 }
 
 code {
