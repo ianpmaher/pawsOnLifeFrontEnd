@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import "./LoginForm.css"
+import "./LoginForm.css";
 import Button from "../Button/Button";
 
 const LoginContainer = styled.div`
@@ -16,14 +16,14 @@ const LoginContainer = styled.div`
     gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
     position: relative;
-`
+`;
 const LoginField = styled.input`
     height: 5vh;
     margin: 0.25rem auto;
     min-width: 20vw;
     border-radius: 5px;
-    box-shadow: 0 0 2rem rgba(0,0,0,0.55);
-    overflow:hidden;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.55);
+    overflow: hidden;
     letter-spacing: 2px;
     padding: 0.25rem;
     transition: 0.9s all ease-in-out;
@@ -31,7 +31,7 @@ const LoginField = styled.input`
     &:focus {
         outline: none;
     }
-`
+`;
 
 const FancyBorder = styled.span`
     border: 0;
@@ -44,46 +44,49 @@ const FancyBorder = styled.span`
     height: 2px;
     &:focus {
         width: 100%;
-        background-color: #3399FF;
+        background-color: #3399ff;
         transition: 0.4s;
     }
-`
+`;
 
 let loggedInAs = null;
 
 const LoginForm = (props) => {
-    const [username, setUsername ] = useState(null);
+    const [username, setUsername] = useState(null);
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        const result = await (await fetch('http://localhost:4013/login', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-              },
-            body: JSON.stringify({
-                email: event.target.parentNode.children[0].value,
-                password: event.target.parentNode.children[1].value
+        const result = await (
+            await fetch("http://localhost:4013/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: event.target.parentNode.children[0].value,
+                    password: event.target.parentNode.children[1].value,
+                }),
             })
-        })).json();
-        localStorage.setItem("username",result.username);
+        ).json();
+        localStorage.setItem("username", result.username);
         loggedInAs = result.username;
         setUsername(result.username);
-        localStorage.setItem("token",result.token);
-    }
+        localStorage.setItem("token", result.token);
+    };
 
     return (
         <>
             {username && <LoginContainer>Logged in as {username}</LoginContainer>}
-            {!username &&
-            <LoginContainer>
-                <LoginField name="email" placeholder="Login Email" className="input-area" />
-                <FancyBorder></FancyBorder>
-                <LoginField name="password" placeholder="Password" type="password" className="input-area" />
-                <Button onClick={handleLogin} aria-label="login">
-                    Login
-                </Button>
-            </LoginContainer>}
+            {!username && (
+                <LoginContainer>
+                    <LoginField name="email" placeholder="Login Email" className="input-area" />
+                    <FancyBorder></FancyBorder>
+                    <LoginField name="password" placeholder="Password" type="password" className="input-area" />
+                    <Button onClick={handleLogin} aria-label="login">
+                        Login
+                    </Button>
+                </LoginContainer>
+            )}
         </>
     );
 };

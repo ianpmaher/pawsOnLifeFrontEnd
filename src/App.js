@@ -13,6 +13,7 @@ import Header from "./components/Header/Header"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
 function App() {
     
@@ -44,6 +45,7 @@ function App() {
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
+                    <Route path="/register" element={<RegistrationPage/>} />
                 </Routes>
             </div>
         </ThemeProvider>
