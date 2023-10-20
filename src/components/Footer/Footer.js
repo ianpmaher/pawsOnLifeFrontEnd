@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import './Footer.css'
 
 const FooterContainer = styled.div`
     margin: 1rem auto auto auto;

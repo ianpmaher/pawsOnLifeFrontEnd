@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "../Button/Button";
 
 const SearchHikingTrails = ({ location, onSearchResults }) => {
   const searchHikingTrails = () => {
@@ -34,7 +35,11 @@ const SearchHikingTrails = ({ location, onSearchResults }) => {
   };
 
 //   return <button onClick={searchHikingTrails}>Search</button>;
-  return <button onClick={searchHikingTrails}>Search</button>;
+  return( 
+    <div>
+        <Button onClick={searchHikingTrails}>Search</Button>
+    </div>
+  );
 };
 
 export default SearchHikingTrails;

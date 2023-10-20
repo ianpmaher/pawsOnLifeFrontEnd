@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const StyledButton = styled.button`
+const Button = styled.button`
     font-size: 1.2rem;
-    width
+    width: 9rem;
     font-family: "Nunito", sans-serif;
     padding: 0.5rem;
     color: white;
@@ -16,15 +16,9 @@ const StyledButton = styled.button`
         opacity: 0.8;
         border: 2px solid var(--yellow-sun-color);
     }
+    &:active {
+        background-color: var(--yellow-sun-color);
+    }
 `
 
-const Button = (props) => {
-    // TODO need to redo this for props input
-    return (
-        <>
-            <StyledButton>{props.text}</StyledButton>
-        </>
-    )
-}
-
-export default Button
+export default Button;

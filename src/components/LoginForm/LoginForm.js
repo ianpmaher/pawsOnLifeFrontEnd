@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import "./LoginForm.css"
+import Button from "../Button/Button";
 
 const LoginContainer = styled.div`
     display: flex;
@@ -64,22 +65,6 @@ const FancyBorder = styled.span`
     }
 `
 
-const LoginButton = styled.button`
-    font-size: 1.2rem;
-    font-family: "Nunito", sans-serif;
-    padding: 0.5rem;
-    color: white;
-    border: 2px solid var(--green-light-blue-color);
-    border-radius: 20px;
-    background-color: var(--blue-sapphire-color);
-    cursor: pointer;
-    transition: all 0.7s ease-in-out;
-    &:hover {
-        opacity: 0.8;
-        border: 2px solid var(--yellow-sun-color);
-    }
-`
-
 let loggedInAs = null;
 
 const LoginForm = (props) => {
@@ -111,9 +96,9 @@ const LoginForm = (props) => {
                 <LoginUser name="email" placeholder="Login Email" className="input-area" />
                 <FancyBorder></FancyBorder>
                 <LoginPass name="password" placeholder="Password" type="password" className="input-area" />
-                <LoginButton onClick={handleLogin} aria-label="login">
+                <Button onClick={handleLogin} aria-label="login">
                     Login
-                </LoginButton>
+                </Button>
             </LoginContainer>}
         </>
     );
