@@ -101,9 +101,9 @@ const RegistrationForm = (props) => {
                     <LoadCanvasTemplate />
                     <RegField name="captcha" placeholder="Captcha" />
                     <FancyBorder />
-                    <RegisterButton onClick={handleRegister} aria-label="Register">
+                    <Button onClick={handleRegister} aria-label="Register">
                         Register
-                    </RegisterButton>
+                    </Button>
                 </RegContainer>
     );
 };

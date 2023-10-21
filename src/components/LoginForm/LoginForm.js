@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./LoginForm.css";
 import Button from "../Button/Button";
 import * as md5 from 'blueimp-md5';
@@ -52,7 +52,7 @@ const FancyBorder = styled.span`
 
 const UserImage = styled.img`
 
-`
+`;
 
 
 const LoginForm = ({validate}) => {
@@ -67,7 +67,7 @@ const LoginForm = ({validate}) => {
             },
             body: JSON.stringify({
                 email: event.target.parentNode.children[0].value,
-                password: event.target.parentNode.children[1].value
+                password: event.target.parentNode.children[2].value
             })
         })).json();
         localStorage.setItem("username", result.username);
@@ -75,12 +75,12 @@ const LoginForm = ({validate}) => {
         setUsername(result.username);
         console.log(md5(result.email));
         localStorage.setItem("token", result.token);
-    }
+    };
 
     const gravatar = (size) => {
         const hash = md5(localStorage.getItem("email") || null)
         return `https://www.gravatar.com/avatar/${hash}?d=identicon&s=${size}`;
-    }
+    };
 
     useEffect(() => {
         async function checkValidation() {
