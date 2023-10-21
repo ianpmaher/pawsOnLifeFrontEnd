@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import Button from "../Button/Button";
 import "./RegistrationForm.css";
+import { LoadCanvasTemplate, loadCaptchaEnginge, validateCaptcha } from 'react-simple-captcha';
 
 const RegContainer = styled.div`
     display: flex;
@@ -51,17 +52,59 @@ const FancyBorder = styled.span`
 
 const RegistrationForm = (props) => {
     /* ========================== */
-    /* useState function definitions */
+    /* useEffect function definitions */
+    
+    useEffect(() => {
+        loadCaptchaEnginge(8);
+    })
 
+    const handleRegister = async (event) => {
+        const formData = {
+            username: event.target.parentNode.children[0].value,
+            email: event.target.parentNode.children[1].value,
+            password: event.target.parentNode.children[2].value,
+            confirmPassword: event.target.parentNode.children[3].value,
+            captcha: event.target.parentNode.children[5].value
+        }
+        const captchaPassed = validateCaptcha(formData.captcha);
+
+        console.log("Captcha Passed", captchaPassed);
+
+        if(formData.password === formData.confirmPassword && captchaPassed){
+                const result = await fetch('http://localhost:4013/register', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData)
+            });
+            if(result.status === 200) {
+                alert("Please verify your account by checking your email.");
+            }else{
+                alert(await result.text());
+            }
+        }else{
+            //TODO: Warn user passwords do not match
+        }
+
+        
+    }
     return (
         <RegContainer>
-            <h1>RegistrationForm</h1>
-            <RegField placeholder="coool stuff" className="input-area"></RegField>
-            <FancyBorder/>
-            <RegField placeholder="coool stuff" className="input-area"></RegField>
-            <FancyBorder />
-            <Button>submit</Button>
-        </RegContainer>
+                    <RegField name="username" placeholder="Username" />
+                    <FancyBorder />
+                    <RegField name="email" placeholder="Email Address" type="email" />
+                    <FancyBorder />
+                    <RegField name="password" placeholder="Password" type="password" />
+                    <RegField name="passwordConfirm" placeholder="Confirm Password" type="password" />
+                    <FancyBorder />
+                    <LoadCanvasTemplate />
+                    <RegField name="captcha" placeholder="Captcha" />
+                    <FancyBorder />
+                    <Button onClick={handleRegister} aria-label="Register">
+                        Register
+                    </Button>
+                </RegContainer>
     );
 };
 

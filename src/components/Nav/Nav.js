@@ -26,28 +26,6 @@ const pages = [
         destination: "/trails",
     }
 ];
-if(localStorage.getItem("token") !== null){
-        pages.push(
-            {
-                title: "Account",
-                destination: "/profile",
-            },
-        {
-            title: "Log Out",
-            destination: "/logout",
-        })
-    }else{
-        pages.push({
-            title: "Log In",
-            destination: "/login",
-        },
-        {
-            title: "Registration",
-            destination: "/register",
-        })
-    }
-
-    // TODO: Move login/out/register/account to context
 
 const FlexContainer = styled.div`
     display: flex;
@@ -59,9 +37,12 @@ const FlexContainer = styled.div`
 // https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu
 // passing down ColorTheme (Dark Mode) as a prop
 const Nav = (props) => {
+
+    // TODO: Destructure out regular props and style props from args for possible different handling
+
     /* declare state for open/close Nav menu */
     const [anchorElemNav, setAnchorElemNav] = useState(null);
-
+    // const { isLoggedIn } = props;
     /* functions to handle state for open/close the two menus*/
     const handleOpenMenuNav = (event) => {
         setAnchorElemNav(event.currentTarget);
@@ -69,8 +50,36 @@ const Nav = (props) => {
     const handleCloseMenuNav = () => {
         setAnchorElemNav(null);
     };
-    
-
+    const setPages = () => {
+        if (pages.length === 2) {
+            if (localStorage.getItem("token") !== null) {
+                pages.push(
+                    {
+                        title: "Account",
+                        destination: "/profile",
+                    },
+                    {
+                        title: "Log Out",
+                        destination: "/logout",
+                    })
+            } else {
+                pages.push({
+                    title: "Log In",
+                    destination: "/login",
+                },
+                    {
+                        title: "Registration",
+                        destination: "/register",
+                    })
+            }
+        }
+    }
+    useEffect(() => {
+        setPages();
+    },
+    []
+    )
+    setPages();
     return (
        <FlexContainer>
             <AppBar position="sticky" {...props} sx={{ borderRadius: 5 }}>
@@ -87,7 +96,7 @@ const Nav = (props) => {
                             aria-haspopup="true"
                             onClick={handleOpenMenuNav}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -104,7 +113,7 @@ const Nav = (props) => {
                             open={Boolean(anchorElemNav)}
                             onClose={handleCloseMenuNav}
                             sx={{
-                                display: { xs: "block", md: "none"},
+                                display: { xs: "block", md: "none" },
                             }}
                         >
                             {pages.map((page) => (

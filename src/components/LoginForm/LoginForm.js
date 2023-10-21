@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./LoginForm.css";
 import Button from "../Button/Button";
+import * as md5 from 'blueimp-md5';
 
 const LoginContainer = styled.div`
     display: flex;
@@ -49,34 +50,58 @@ const FancyBorder = styled.span`
     }
 `;
 
-let loggedInAs = null;
+const UserImage = styled.img`
 
-const LoginForm = (props) => {
-    const [username, setUsername] = useState(null);
+`;
+
+
+const LoginForm = ({validate}) => {
+    const [username, setUsername] = useState(localStorage.getItem("username") || null);
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        const result = await (
-            await fetch("http://localhost:4013/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email: event.target.parentNode.children[0].value,
-                    password: event.target.parentNode.children[1].value,
-                }),
+        const result = await (await fetch('http://localhost:4013/login', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: event.target.parentNode.children[0].value,
+                password: event.target.parentNode.children[2].value
             })
-        ).json();
+        })).json();
         localStorage.setItem("username", result.username);
-        loggedInAs = result.username;
+        localStorage.setItem("email", result.email);
         setUsername(result.username);
+        console.log(md5(result.email));
         localStorage.setItem("token", result.token);
     };
 
+    const gravatar = (size) => {
+        const hash = md5(localStorage.getItem("email") || null)
+        return `https://www.gravatar.com/avatar/${hash}?d=identicon&s=${size}`;
+    };
+
+    useEffect(() => {
+        async function checkValidation() {
+            const validated = await validate();
+            if (validated) {
+                console.log("User is logged in");
+            } else {
+                console.log("User is not logged in");
+            }
+        }
+        checkValidation();
+    }, [username, validate])
+
     return (
         <>
-            {username && <LoginContainer>Logged in as {username}</LoginContainer>}
+            {username &&<LoginContainer>
+                <UserImage
+                    src={gravatar(200)}
+                />
+                Logged in as {username}
+            </LoginContainer>}
             {!username && (
                 <LoginContainer>
                     <LoginField name="email" placeholder="Login Email" className="input-area" />
