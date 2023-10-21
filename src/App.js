@@ -25,6 +25,7 @@ function App() {
         () =>
             createTheme({
                 palette: {
+                    /* asks client browser if set preference for dark mode! mui <3 */
                     mode: prefersDarkModeFunc ? 'dark' : 'light',
                     // primary: {
                         
