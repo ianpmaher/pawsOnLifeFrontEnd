@@ -1,11 +1,15 @@
 import styled from "styled-components";
 import Nav from "../Nav/Nav"
+import Box from "@mui/material/Box"
 
 const HeaderContainer = styled.header`
     text-align: center;
     display: flex;
-    flex-flow: column wrap;
-    justify-content: space-around;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 0.25rem auto;
+    position: sticky;
 `;
 
 const HeaderText = styled.h1`
@@ -13,12 +17,14 @@ const HeaderText = styled.h1`
     margin: 0.5rem auto
 `;
 
-const Header = (props) => {
+const Header = () => {
     return (
-        <HeaderContainer>
-            <HeaderText>PawsOn.Life</HeaderText>
-            <Nav />
-        </HeaderContainer>
+        <div>
+            <HeaderContainer>
+                <HeaderText>PawsOn.Life</HeaderText>
+                <Nav />
+            </HeaderContainer>
+        </div>
     );
 };
 

@@ -1,10 +1,8 @@
 // ALL DA ROUTES
 import * as React from "react";
-import { Link as ReactRouterLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; /* need to use useEffect or git rid of */
 import styled from "styled-components";
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
@@ -53,7 +51,7 @@ if(localStorage.getItem("token") !== null){
 
 const FlexContainer = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     padding: 0 1rem;
 `
@@ -74,10 +72,9 @@ const Nav = (props) => {
     
 
     return (
-       
-        <AppBar position="static" {...props} sx={{ borderRadius: 5 }}>
-            <FlexContainer>
-                <Toolbar disableGutters >
+       <FlexContainer>
+            <AppBar position="sticky" {...props} sx={{ borderRadius: 5 }}>
+                <Toolbar  >
                     {/* in MUI, sx props are inline styles. "m" is margin */}
                     {/* https://mui.com/system/getting-started/the-sx-prop/ */}
                     {/* everything in Box container will display unless mobile, then hamburger menu */}
@@ -147,8 +144,8 @@ const Nav = (props) => {
                         ))}
                     </Box>
                 </Toolbar>
-            </FlexContainer>
-        </AppBar>
+            </AppBar>
+        </FlexContainer>
     );
 };
 
