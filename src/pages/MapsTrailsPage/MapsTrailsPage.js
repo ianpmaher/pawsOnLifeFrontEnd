@@ -42,6 +42,7 @@ const MapsTrailsPage = (props) => {
       <SearchForm
         location={location}
         handleLocationChange={handleLocationChange}
+        setLocation={setLocation}
       />
       <SearchHikingTrails
         location={location}
