@@ -5,6 +5,7 @@ import SearchForm from "../../components/SearchForm/SearchForm";
 import SearchHikingTrails from "../../components/SearchHikingTrails/SearchHikingTrails";
 import TrailList from "../../components/TrailList/TrailList";
 import styled from "styled-components";
+import { useLoadScript } from '@react-google-maps/api';
 
 const MapsTrailsPageContainer = styled.div`
     display: flex;
@@ -25,7 +26,13 @@ const MapsTrailsTitleText = styled.h1`
     }
 `
 
+  const placesLibrary = ['places'];
+
 const MapsTrailsPage = (props) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+    libraries: placesLibrary
+  })
   // need to store user input
   const [location, setLocation] = useState("");
   // need to hold the user searched address to find trail
@@ -48,6 +55,8 @@ const MapsTrailsPage = (props) => {
         location={location}
         handleLocationChange={handleLocationChange}
         setLocation={setLocation}
+        setResults={setSearchResults}
+        isLoaded={isLoaded}
       />
       <SearchHikingTrails
         location={location}
@@ -57,6 +66,7 @@ const MapsTrailsPage = (props) => {
         <MapView
           selectedPlaceId={selectedPlaceId}
           searchResults={searchResults}
+          isLoaded={isLoaded}
         />
         <TrailList
           searchResults={searchResults}
@@ -65,7 +75,7 @@ const MapsTrailsPage = (props) => {
       </div>
       <FooterUserTrails />
     </MapsTrailsPageContainer>
-  )
+  );
 }
 
 export default MapsTrailsPage;

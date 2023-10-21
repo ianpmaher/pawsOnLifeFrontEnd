@@ -1,7 +1,7 @@
 //onclick of Search button use Geocoder to convert the address to a long and lat
 //https://developers.google.com/maps/documentation/geocoding/requests-geocoding#geocoding-lookup
 //https://github.com/googlemaps/js-samples/blob/b968b79e7ab580b723fbcdd7b3e9edd2370d30ee/dist/samples/places-placeid-geocoder/docs/index.js
-const SearchHikingTrails = ({ location, onSearchResults }) => {
+const SearchHikingTrails = ({ location, onSearchResults, isLoaded }) => {
   const searchHikingTrails = () => {
     const geocoder = new window.google.maps.Geocoder();
     // Geocode the user-provided location to get its coordinates
@@ -39,6 +39,6 @@ const SearchHikingTrails = ({ location, onSearchResults }) => {
       }
     });
   };
-  return <button onClick={searchHikingTrails}>Search</button>;
+  return isLoaded ? <button onClick={searchHikingTrails}>Search</button> : <></>;
 };
 export default SearchHikingTrails;
