@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ModalFun from "../ModalFun/ModalFun";
 
 const FooterContainer = styled.div`
     margin: 1rem auto auto auto;
@@ -18,6 +19,7 @@ const FlexList = styled.ul`
     margin: 0;
     display: flex;
     flex-flow: row wrap;
+    align-items: center;
 `
 const Social = styled.img`
     width: 50px;
@@ -30,6 +32,9 @@ const Footer = (props) => {
     return (
         <FooterContainer>
             <FlexList>
+                <li style={{textAlign: "center"}}>
+                    <ModalFun />
+                </li>
                 <li>
                     <a href="https://github.com/ianpmaher/pawsOnLifeFrontEnd" target="_blank" rel="noreferrer noopener">
                         <Social
