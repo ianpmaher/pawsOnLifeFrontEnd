@@ -9,7 +9,7 @@ const RegContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin: 1rem; auto;
+    margin: 1rem auto;
     padding: 2rem;
     border-radius: 20px;
     max-width: 50;
@@ -91,15 +91,15 @@ const RegistrationForm = (props) => {
     }
     return (
         <RegContainer>
-                    <RegField name="username" placeholder="Username" />
+                    <RegField name="username" placeholder="Username" className="input-area" />
                     <FancyBorder />
-                    <RegField name="email" placeholder="Email Address" type="email" />
+                    <RegField name="email" placeholder="Email Address" type="email" className="input-area" />
                     <FancyBorder />
-                    <RegField name="password" placeholder="Password" type="password" />
-                    <RegField name="passwordConfirm" placeholder="Confirm Password" type="password" />
+                    <RegField name="password" placeholder="Password" type="password" className="input-area" />
+                    <RegField name="passwordConfirm" placeholder="Confirm Password" type="password" className="input-area" />
                     <FancyBorder />
                     <LoadCanvasTemplate />
-                    <RegField name="captcha" placeholder="Captcha" />
+                    <RegField name="captcha" placeholder="Captcha" className="input-area" />
                     <FancyBorder />
                     <Button onClick={handleRegister} aria-label="Register">
                         Register

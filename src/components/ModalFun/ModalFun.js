@@ -42,9 +42,8 @@ const ModalFun = () => {
             >   
                 <ModalContainer>
                     <Card id="about-us">
-                        PawsOn.Life is built to assist people find pet-friendly hiking trails and nature walks.
                         PawsOn.Life is a collaborative effort to support healthy lifestyles, connecting our love of the great outdoors with our passion for web development. 
-                        We hope to foster a community of like-minded pet lovers, providing them a platform to find and share pet-friendly hiking trails.
+                        We hope to foster a community of like-minded pet lovers. Register your account now to find, rate, and share your favorite pet-friendly hiking trails.
                     </Card>
                 </ModalContainer>
 

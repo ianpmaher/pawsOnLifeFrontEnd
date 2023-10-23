@@ -87,10 +87,10 @@ const Nav = (props) => {
                     {/* in MUI, sx props are inline styles. "m" is margin */}
                     {/* https://mui.com/system/getting-started/the-sx-prop/ */}
                     {/* everything in Box container will display unless mobile, then hamburger menu */}
-                    <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                    <Box sx={{ flexGrow: 1, display: { s: "flex", md: "none" } }}>
                         <IconButton
                             size="large"
-                            edge="start"
+                            edge="false"
                             aria-label="site navigation"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
