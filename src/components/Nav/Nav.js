@@ -90,7 +90,6 @@ const Nav = (props) => {
                     <Box sx={{ flexGrow: 1, display: { s: "flex", md: "none" } }}>
                         <IconButton
                             size="large"
-                            edge="false"
                             aria-label="site navigation"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"

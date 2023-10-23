@@ -1,9 +1,14 @@
-import styled from "styled-components";
-import Main from "../../components/Main/Main";
-import Footer from "../../components/Footer/Footer";
-import Hero from "../../components/Hero/Hero";
 import { useState } from "react";
+import styled from "styled-components";
 import CarouselEl from "../../components/Carousel/Carousel";
+import Footer from "../../components/Footer/Footer";
+
+import Hero from "../../components/Hero/Hero";
+
+import Main from "../../components/Main/Main";
+import DogBone from "../../components/DogBone/DogBone";
+
+
 
 const HomePageContainer = styled.div`
     display: flex;
@@ -35,6 +40,7 @@ const HomePage = (props) => {
             />
             <CarouselEl trails={trails} />              
             <Footer/>
+            <DogBone />
         </HomePageContainer>
     )
 }

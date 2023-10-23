@@ -1,20 +1,11 @@
 import styled from 'styled-components';
-import PetsIcon from '@mui/icons-material/Pets';
+import Grid from "@mui/material/Grid"
 
 const MainContainer = styled.div`
     display: flex;
-    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    max-width: 100%;
-    height: 100%;
     border-radius: 20px;
-`
-
-const Row = styled.div`
-    display: flex;
-    flex-flow: row wrap;
-    gap: 1rem;
 `
 
 const Card = styled.div`
@@ -26,26 +17,38 @@ const Card = styled.div`
     padding: 0.5rem;
     border-radius: 20px;
     margin: 0.25rem auto;
+    @media (max-width 768px) {
+        max-width: 8rem;
+        max-height: 5rem;
+    }
 `
 
 const ImgCard = styled.img`
     width: 100%;
     height: auto;
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 15rem;
+    max-height: 15rem;
     @media (max-width: 768px) {
         max-width: 10rem;
         max-height: 10rem;
     }
+`
+const UlTrail = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 `
 
 /* Props! */
 const TrailCard = ({title, url, content}) => {
     return (
         <Card>
-            <h3>{title}</h3>
-            <ImgCard src={url} alt={title}/>
-            <p>{content}</p>
+            <UlTrail>
+                <h4>{title}</h4>
+                <ImgCard src={url} alt={title}/>
+                <li>{content}</li>
+                <li>{content}</li>
+            </UlTrail>
         </Card>
     )
 }
@@ -55,19 +58,13 @@ const Main = (props) => {
     /*  */
     return (
         <MainContainer>
-            <Row>
-                <Card>
-                    <PetsIcon />
-                </Card>
-                <Card>
-                    <PetsIcon />
-                </Card>
-            </Row>
-            <Row>
+            <Grid container spacing={3}>
                 {props.trails.map((trail, index) => (
-                    <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+                    <Grid item xs key={index}>
+                        <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+                    </Grid>
                 ))}
-            </Row>
+            </Grid>
             
         </MainContainer>
     )
