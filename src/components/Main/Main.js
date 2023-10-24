@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Grid from "@mui/material/Grid"
+import DogBone from '../DogBone/DogBone';
 
 const MainContainer = styled.div`
     display: flex;
@@ -40,14 +41,40 @@ const UlTrail = styled.ul`
 `
 
 /* Props! */
-const TrailCard = ({title, url, content}) => {
+const TrailCard = ({title, url, content, review}) => {
     return (
         <Card>
             <UlTrail>
                 <h4>{title}</h4>
                 <ImgCard src={url} alt={title}/>
                 <li>{content}</li>
-                <li>{content}</li>
+                {/* ==================================== */}
+                {/* LOGIC FOR NUMBER OF BONES FOR REVIEWS */}
+                { review === 1 && <>
+                <li><DogBone /></li>
+                </>}
+                { review === 2 && <>
+                <li><DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 3 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 4 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 5 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
             </UlTrail>
         </Card>
     )
@@ -56,12 +83,14 @@ const TrailCard = ({title, url, content}) => {
 const Main = (props) => {
     /* I have these placeholders for now, just looking at margins and stuff */
     /*  */
+   
+
     return (
         <MainContainer>
             <Grid container spacing={3}>
                 {props.trails.map((trail, index) => (
                     <Grid item xs key={index}>
-                        <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+                        <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} review={trail.review} />
                     </Grid>
                 ))}
             </Grid>

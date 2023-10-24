@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import DogBone from '../DogBone/DogBone';
 
 
 const ImgCard = styled.img`
@@ -19,28 +20,63 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--blue-sapphire-color);
-    padding: 1rem;
+    padding: 2rem 1rem;
     border-radius: 20px;
     margin: 0.5rem auto;
 `
 
+const UlTrail = styled.ul`
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+`
+
 /* Props! */
-const TrailCard = ({title, url, content}) => {
+const TrailCard = ({title, url, content, review}) => {
     return (
         <Card>
-            <h3>{title}</h3>
-            <ImgCard src={url} alt={title}/>
-            <p>{content}</p>
+            <UlTrail>
+                <h4>{title}</h4>
+                <ImgCard src={url} alt={title}/>
+                <li>{content}</li>
+                {/* ==================================== */}
+                {/* LOGIC FOR NUMBER OF BONES FOR REVIEWS */}
+                { review === 1 && <>
+                <li><DogBone /></li>
+                </>}
+                { review === 2 && <>
+                <li><DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 3 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 4 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
+                { review === 5 && <>
+                <li><DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone />
+                <DogBone /></li>
+                </>}
+            </UlTrail>
         </Card>
     )
 }
 
 const CarouselEl = (props) => {
     return (
-        <div style={{maxWidth:"49vw", minWidth:"30vw", margin:"0 auto"}}>
+        <div style={{maxWidth:"40vw", minWidth:"30vw", margin:"0 auto"}}>
             <Carousel showThumbs={false}>
             {props.trails?.map((trail, index) => (
-                <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} />
+                <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} review={trail?.review} />
             ))}
             
             </Carousel>
