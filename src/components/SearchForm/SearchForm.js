@@ -33,7 +33,7 @@ const SearchForm = ({ location, setLocation, handleLocationChange }) => {
   return (
     <div id="search-container">
       <div id="search-form">
-        <InputField
+        <input
           type="text"
           id="autocomplete"
           placeholder="Enter Address"
