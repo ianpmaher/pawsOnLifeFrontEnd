@@ -32,13 +32,16 @@ const SearchForm = ({ location, setLocation, handleLocationChange }) => {
 
   return (
     <div id="search-container">
-      <input
-        id="autocomplete"
-        placeholder="Enter a place"
-        type="text"
-        onChange={(event) => handleLocationChange(event)}
-        value={location}
-      />
+      <div id="search-form">
+        <InputField
+          type="text"
+          id="autocomplete"
+          placeholder="Enter Address"
+          value={location}
+          onChange={handleLocationChange}
+          />
+      </div>
+
     </div>
   );
 };

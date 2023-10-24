@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Button = styled.button`
     font-size: 1.2rem;
     width: 9rem;
+    min-width: fit-content;
     font-family: "Nunito", sans-serif;
     padding: 0.5rem;
     color: white;
@@ -10,7 +11,6 @@ const Button = styled.button`
     border-radius: 20px;
     background-color: var(--blue-sapphire-color);
     cursor: pointer;
-    max-width: 5rem;
     transition: all 0.7s ease-in-out;
     &:hover {
         opacity: 0.8;
