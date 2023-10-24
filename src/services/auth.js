@@ -1,5 +1,5 @@
 export async function isAuthorized(){
-    const result = await fetch("http://localhost:4013/authorize", {
+    const result = await fetch("https://dev.pawson.life/authorize", {
         method: "POST",
         headers: {
             "x-access-token" : localStorage.getItem("token") || null

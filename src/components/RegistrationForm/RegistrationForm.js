@@ -71,7 +71,7 @@ const RegistrationForm = (props) => {
         console.log("Captcha Passed", captchaPassed);
 
         if(formData.password === formData.confirmPassword && captchaPassed){
-                const result = await fetch('http://localhost:4013/register', {
+                const result = await fetch('https://dev.pawson.life/register', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

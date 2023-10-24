@@ -18,30 +18,38 @@ const center = {
   lng: -38.523
 };
 
-const MapView = ({ selectedPlaceId, searchResults, isLoaded }) => {
+const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
 
-  const [ map, setMap ] = useState(null);
-
-  const onLoad = useCallback( function loadMap(map){
+  const onLoad = useCallback(function loadMap(map) {
     const bounds = new window.google.maps.LatLngBounds(center);
     map.fitBounds(bounds)
     console.log(bounds)
     setMap(map);
-  }, []);
+  }, [setMap]);
 
-  const onUnload = useCallback( function unLoad(map){
+  const onUnload = useCallback(function unLoad(map) {
     setMap(null);
-  }, []);
+  }, [setMap]);
 
-  useEffect(() => {
-    console.log("Map should update here")
+  const updateMap = useCallback(() => {
+    console.log("Updating Map...")
+    console.log(map);
+    const newService = new window.google.maps.places.PlacesService(map);
+    console.log(isLoaded, "Setting new service")
+    setService(newService);
+  },[map, isLoaded,setService])
 
-    // const bounds = new window.google.maps.LatLngBounds(center);
-    // map.fitBounds(bounds)
-    // console.log(bounds)
-    // setMap(map);
-
-  }, [selectedPlaceId, searchResults]);
+  useEffect( () => {
+    if(coordinates?.lat && typeof coordinates === "object"){
+      console.log("Updating..")
+      const bounds = new window.google.maps.LatLngBounds({lat: coordinates.lat(), lng: coordinates.lng()});
+      console.log(bounds)
+      map.fitBounds(bounds)
+      setMap(map);
+      updateMap();
+    }
+    
+  }, [coordinates, setMap, map, updateMap])
 
   return isLoaded ? (
     <ContainerStyle>
