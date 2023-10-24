@@ -10,13 +10,18 @@ const MapsTrailsPageContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
     gap: 2rem;
-    background: var(--background-container-gradient);
+    background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
     border-radius: 20px;
     padding: 1rem 5rem 10rem 5rem;
-    max-width: 80vw;
+    max-width: 70vw;
     margin: 0 auto;
     @media (max-width: 768px) {
         padding: 1rem 2rem 5rem 2rem;
+    }
+`
+const MapsTrailsTitleText = styled.h1`
+    @media (max-width: 768px) {
+        font-size: 1.3rem;
     }
 `
 
@@ -38,7 +43,7 @@ const MapsTrailsPage = (props) => {
 
   return (
     <MapsTrailsPageContainer>
-      <h1>Find Hiking Trails Near You</h1>
+      <MapsTrailsTitleText>Find Hiking Trails Near You</MapsTrailsTitleText>
       <SearchForm
         location={location}
         handleLocationChange={handleLocationChange}
