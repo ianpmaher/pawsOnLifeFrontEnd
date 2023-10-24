@@ -31,8 +31,8 @@ const DogWaterRecPage = (props) => {
         <DogWaterRecPageContainer>
             <h1>dog water</h1>
             <WaterRec trails={trails} userDog={userDog} />
-            
         </DogWaterRecPageContainer>
+
     )
 }
 

@@ -30,7 +30,7 @@ const Card = styled.div`
     }
 `
 
-const TrailCard = ({title, content, review, length}, {weight}) => {
+const TrailCard = ({title, content, url, review, length}, {weight}) => {
     return (
         <Card>
             <UlTrail>
@@ -62,11 +62,9 @@ const TrailCard = ({title, content, review, length}, {weight}) => {
                 <DogBone />
                 <DogBone /></li>
                 </>}
+                {/* <img src={url} alt={content} /> */}
             </UlTrail>
-            <UlTrail>
-                <li><WaterDropIcon/> This is a {length} mile trek.</li>
-                <li><WaterDropIcon/></li>
-            </UlTrail>
+            
         </Card>
     )
 }
