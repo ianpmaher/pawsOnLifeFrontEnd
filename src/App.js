@@ -8,12 +8,12 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import Main from "./components/Main/Main";
 import HomePage from './pages/HomePage/HomePage';
 import Header from "./components/Header/Header"
 import LoginPage from "./pages/LoginPage/LoginPage"
 import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
+import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 
 function App() {
     
@@ -25,6 +25,7 @@ function App() {
         () =>
             createTheme({
                 palette: {
+                    /* asks client browser if set preference for dark mode! mui <3 */
                     mode: prefersDarkModeFunc ? 'dark' : 'light',
                     // primary: {
                         
@@ -38,15 +39,15 @@ function App() {
         // using Route component to specify routes
         <ThemeProvider theme={theme}>
             <CssBaseline enableColorScheme />
-            <div className="App">
+            <div className="App" theme={theme}>
                 <Header theme={theme} />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/login" element={<LoginPage />} />
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
+                    <Route path="/register" element={<RegistrationPage/>} />
                 </Routes>
-                
             </div>
         </ThemeProvider>
     );

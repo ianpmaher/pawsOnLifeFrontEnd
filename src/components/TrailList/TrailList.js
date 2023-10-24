@@ -1,4 +1,6 @@
 const TrailList = ({ searchResults, setSelectedPlaceId }) => {
+  console.log(typeof searchResults);
+
   return (
     <div id="results">
       <ul>

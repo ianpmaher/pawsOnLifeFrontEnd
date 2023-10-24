@@ -6,16 +6,15 @@ const MainContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--red-ruby-color);
-    width: 80vw;
+    max-width: 100%;
     height: 100%;
     border-radius: 20px;
 `
 
 const Row = styled.div`
     display: flex;
-    flex-flow: column-wrap;
-    gap: 2rem;
+    flex-flow: row wrap;
+    gap: 1rem;
 `
 
 const Card = styled.div`
@@ -24,10 +23,32 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--blue-sapphire-color);
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 20px;
-    
+    margin: 0.25rem auto;
 `
+
+const ImgCard = styled.img`
+    width: 100%;
+    height: auto;
+    max-width: 20rem;
+    max-height: 20rem;
+    @media (max-width: 768px) {
+        max-width: 10rem;
+        max-height: 10rem;
+    }
+`
+
+/* Props! */
+const TrailCard = ({title, url, content}) => {
+    return (
+        <Card>
+            <h3>{title}</h3>
+            <ImgCard src={url} alt={title}/>
+            <p>{content}</p>
+        </Card>
+    )
+}
 
 const Main = (props) => {
     /* I have these placeholders for now, just looking at margins and stuff */
@@ -41,14 +62,11 @@ const Main = (props) => {
                 <Card>
                     <PetsIcon />
                 </Card>
-                <Card>
-                    <p>Hiking</p>
-                </Card>
             </Row>
-            <Row >
-                <Card>
-                    <img src='https://img.freepik.com/premium-psd/dog-with-opened-mouth-isolated-transparent-background_927015-532.jpg' alt="dog" /> 
-                </Card>
+            <Row>
+                {props.trails.map((trail, index) => (
+                    <TrailCard key={index} title={trail.title} url={trail.url} content={trail.content} />
+                ))}
             </Row>
             
         </MainContainer>

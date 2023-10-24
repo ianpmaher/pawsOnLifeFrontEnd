@@ -1,10 +1,8 @@
 // ALL DA ROUTES
 import * as React from "react";
-import { Link as ReactRouterLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "react"; /* need to use useEffect or git rid of */
 import styled from "styled-components";
 import AppBar from "@mui/material/AppBar";
-import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import IconButton from "@mui/material/IconButton";
 import Link from "@mui/material/Link";
@@ -28,32 +26,10 @@ const pages = [
         destination: "/trails",
     }
 ];
-if(localStorage.getItem("token") !== null){
-        pages.push(
-            {
-                title: "Account",
-                destination: "/profile",
-            },
-        {
-            title: "Log Out",
-            destination: "/logout",
-        })
-    }else{
-        pages.push({
-            title: "Log In",
-            destination: "/login",
-        },
-        {
-            title: "Registration",
-            destination: "/register",
-        })
-    }
-
-    // TODO: Move login/out/register/account to context
 
 const FlexContainer = styled.div`
     display: flex;
-    justify-content: left;
+    justify-content: center;
     align-items: center;
     padding: 0 1rem;
 `
@@ -61,9 +37,12 @@ const FlexContainer = styled.div`
 // https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu
 // passing down ColorTheme (Dark Mode) as a prop
 const Nav = (props) => {
+
+    // TODO: Destructure out regular props and style props from args for possible different handling
+
     /* declare state for open/close Nav menu */
     const [anchorElemNav, setAnchorElemNav] = useState(null);
-
+    // const { isLoggedIn } = props;
     /* functions to handle state for open/close the two menus*/
     const handleOpenMenuNav = (event) => {
         setAnchorElemNav(event.currentTarget);
@@ -71,13 +50,40 @@ const Nav = (props) => {
     const handleCloseMenuNav = () => {
         setAnchorElemNav(null);
     };
-    
-
+    const setPages = () => {
+        if (pages.length === 2) {
+            if (localStorage.getItem("token") !== null) {
+                pages.push(
+                    {
+                        title: "Account",
+                        destination: "/profile",
+                    },
+                    {
+                        title: "Log Out",
+                        destination: "/logout",
+                    })
+            } else {
+                pages.push({
+                    title: "Log In",
+                    destination: "/login",
+                },
+                    {
+                        title: "Registration",
+                        destination: "/register",
+                    })
+            }
+        }
+    }
+    useEffect(() => {
+        setPages();
+    },
+    []
+    )
+    setPages();
     return (
-       
-        <AppBar position="static" {...props} sx={{ borderRadius: 5 }}>
-            <FlexContainer>
-                <Toolbar disableGutters >
+       <FlexContainer>
+            <AppBar position="sticky" {...props} sx={{ borderRadius: 5 }}>
+                <Toolbar  >
                     {/* in MUI, sx props are inline styles. "m" is margin */}
                     {/* https://mui.com/system/getting-started/the-sx-prop/ */}
                     {/* everything in Box container will display unless mobile, then hamburger menu */}
@@ -90,7 +96,7 @@ const Nav = (props) => {
                             aria-haspopup="true"
                             onClick={handleOpenMenuNav}
                         >
-                            <MenuIcon/>
+                            <MenuIcon />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -107,7 +113,7 @@ const Nav = (props) => {
                             open={Boolean(anchorElemNav)}
                             onClose={handleCloseMenuNav}
                             sx={{
-                                display: { xs: "block", md: "none"},
+                                display: { xs: "block", md: "none" },
                             }}
                         >
                             {pages.map((page) => (
@@ -147,8 +153,8 @@ const Nav = (props) => {
                         ))}
                     </Box>
                 </Toolbar>
-            </FlexContainer>
-        </AppBar>
+            </AppBar>
+        </FlexContainer>
     );
 };
 

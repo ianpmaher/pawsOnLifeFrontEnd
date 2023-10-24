@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Header from "../../components/Header/Header";
 import LoginForm from "../../components/LoginForm/LoginForm";
+import { isAuthorized } from "../../services/auth";
 
 const LoginPageContainer = styled.div`
     display: flex;
@@ -12,7 +12,7 @@ const LoginPage = (props) => {
     //
     return (
         <LoginPageContainer>
-            <LoginForm />
+            <LoginForm validate={isAuthorized}/>
         </LoginPageContainer>
     )
 }
