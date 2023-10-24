@@ -60,7 +60,7 @@ const LoginForm = ({validate}) => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
-        const result = await (await fetch('http://localhost:4013/login', {
+        const result = await (await fetch('https://dev.pawson.life/login', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

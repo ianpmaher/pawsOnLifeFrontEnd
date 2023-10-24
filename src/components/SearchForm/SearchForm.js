@@ -1,48 +1,47 @@
-const SearchForm = ({ location, setLocation, handleLocationChange }) => {
-  // https://developers.google.com/maps/documentation/javascript/place-autocomplete
-  let autocomplete;
+import { Autocomplete, useLoadScript } from '@react-google-maps/api';
 
-  // source: https://www.youtube.com/watch?v=c3MjU9E9buQ&t=1s
-  const initAutocomplete = () => {
-    autocomplete = new window.google.maps.places.Autocomplete(
-      document.getElementById("autocomplete"),
-      {
-        componentRestrictions: { country: ["us"] },
-        fields: ["place_id", "geometry", "name", "formatted_address"],
-      }
-    );
+import SearchHikingTrails from "../../components/SearchHikingTrails/SearchHikingTrails";
+import { useState } from 'react';
 
-    autocomplete.addListener("place_changed", onPlaceChanged);
-  };
+  const placesLibrary = ['places'];
+
+const SearchForm = ({ location, setLocation, setCoordinates, map }) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+    libraries: placesLibrary
+  })
+
+  const [address, setAddress] = useState("");
 
   const onPlaceChanged = () => {
-    const place = autocomplete.getPlace();
-    if (!place.geometry) {
-      // user did not select a prediction: reset the input field
-      document.getElementById("autocomplete").placeholder = `Enter a place`;
-    } else {
-      // display details about the valid place
-      // document.getElementById("autocomplete").innerHTML = place.name;
-      setLocation(place.formatted_address);
-      console.log(place.formatted_address)
+    console.log(location);
+    if(location){
+      const place = location.getPlace();
+      const {formatted_address} = place;
+      console.log(formatted_address);
+      setAddress(formatted_address);
     }
   };
 
-  initAutocomplete();
 
-  return (
+  const onLoad = (autocomplete) => {
+    setLocation(autocomplete);
+  }
+
+  return isLoaded ? (
     <div id="search-container">
-      <div id="search-form">
-        <InputField
-          type="text"
-          id="autocomplete"
-          placeholder="Enter Address"
-          value={location}
-          onChange={handleLocationChange}
-          />
-      </div>
-
+      <Autocomplete
+        onPlaceChanged={onPlaceChanged}
+        onLoad={onLoad}
+      >
+        <input></input>
+      </Autocomplete>
+      <SearchHikingTrails
+        address={address}
+        setCoordinates={setCoordinates}
+        map={map}
+      />
     </div>
-  );
+  ) : <></>;
 };
 export default SearchForm;
