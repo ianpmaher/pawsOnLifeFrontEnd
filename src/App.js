@@ -1,11 +1,9 @@
 import React from 'react'
 // import ROUTER
 import { Route, Routes } from 'react-router-dom'
-import { useState } from "react";
 import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import HomePage from './pages/HomePage/HomePage';

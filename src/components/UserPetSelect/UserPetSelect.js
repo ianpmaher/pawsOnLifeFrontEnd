@@ -14,23 +14,7 @@ const FlexContainer = styled.div`
     align-items: center;
 `
 
-const marks = [
-    {
-        value: 1,
-        label: "Dog",
-    },
-    {
-        value: 2,
-        label: "Cat",
-    }
-]
-
-const valuetext = (value) => {
-    return `${value}`
-}
-
-
-const UserPet = (props) => {
+const UserPetSelect = (props) => {
     // https://mui.com/material-ui/react-slider/
 
     return (
@@ -57,4 +41,4 @@ const UserPet = (props) => {
     )
 }
 
-export default UserPet;
+export default UserPetSelect;
