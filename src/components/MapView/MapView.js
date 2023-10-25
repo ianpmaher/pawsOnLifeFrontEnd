@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
-import { GoogleMap } from '@react-google-maps/api';
+import { GoogleMap } from "@react-google-maps/api";
 import styled from "styled-components";
 
 // Ian do styling things here
@@ -9,47 +9,54 @@ const ContainerStyle = styled.div`
 `;
 
 const mapStyle = {
-  width: '400px',
-  height: '400px'
-}
+  width: "400px",
+  height: "400px",
+};
 
 const center = {
-  lat: -3.745,
-  lng: -38.523
+  lat: 30.085925,
+  lng: -94.099047,
 };
 
 const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
+  const onLoad = useCallback(
+    function loadMap(map) {
+      const bounds = new window.google.maps.LatLngBounds(center);
+      map.fitBounds(bounds);
+      console.log(bounds);
+      setMap(map);
+    },
+    [setMap]
+  );
 
-  const onLoad = useCallback(function loadMap(map) {
-    const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds)
-    console.log(bounds)
-    setMap(map);
-  }, [setMap]);
-
-  const onUnload = useCallback(function unLoad(map) {
-    setMap(null);
-  }, [setMap]);
+  const onUnload = useCallback(
+    function unLoad(map) {
+      setMap(null);
+    },
+    [setMap]
+  );
 
   const updateMap = useCallback(() => {
-    console.log("Updating Map...")
+    console.log("Updating Map...");
     console.log(map);
     const newService = new window.google.maps.places.PlacesService(map);
-    console.log(isLoaded, "Setting new service")
+    console.log(isLoaded, "Setting new service");
     setService(newService);
-  },[map, isLoaded,setService])
+  }, [map, isLoaded, setService]);
 
-  useEffect( () => {
-    if(coordinates?.lat && typeof coordinates === "object"){
-      console.log("Updating..")
-      const bounds = new window.google.maps.LatLngBounds({lat: coordinates.lat(), lng: coordinates.lng()});
-      console.log(bounds)
-      map.fitBounds(bounds)
+  useEffect(() => {
+    if (coordinates?.lat && typeof coordinates === "object") {
+      console.log("Updating..");
+      const bounds = new window.google.maps.LatLngBounds({
+        lat: coordinates.lat(),
+        lng: coordinates.lng(),
+      });
+      console.log(bounds);
+      map.fitBounds(bounds);
       setMap(map);
       updateMap();
     }
-    
-  }, [coordinates, setMap, map, updateMap])
+  }, [coordinates, setMap, map, updateMap]);
 
   return isLoaded ? (
     <ContainerStyle>
@@ -64,7 +71,9 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
         <></>
       </GoogleMap>
     </ContainerStyle>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 };
 
 export default MapView;
