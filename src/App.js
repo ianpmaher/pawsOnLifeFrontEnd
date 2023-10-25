@@ -13,6 +13,7 @@ import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import DogWaterRecPage from './pages/DogWaterRecPage/DogWaterRecPage';
+import SuccessPage from './pages/SuccessPage/SuccessPage';
 
 function App() {
     
@@ -47,6 +48,7 @@ function App() {
                     <Route path="/profile" element={<UserProfilePage/>} />
                     <Route path="/register" element={<RegistrationPage/>} />
                     <Route path="/water" element={<DogWaterRecPage/>} />
+                    <Route path="/confirmRegister" element={<SuccessPage/>} />
                 </Routes>
             </div>
         </ThemeProvider>
