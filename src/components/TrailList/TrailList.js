@@ -31,7 +31,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
     <div id="results">
       <UlTrail>
         {trails.length
-          ? trails.map((result, index) => (
+          ? trails.slice(0, 10).map((result, index) => (
               <li
                 key={index}
                 onClick={() => setSelectedPlaceId(result)}
