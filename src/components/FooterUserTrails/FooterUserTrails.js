@@ -62,9 +62,9 @@ const FooterUserTrails = (props) => {
         <AppBar position="static" sx={{flexFlow:"row wrap", justifyContent:"center", borderRadius:"20px"}}>
             <Tabs value={value} onChange={handleChange} aria-label="icon label tabs" sx={{backgroundColor: "rgba(0,0,0,0.6)", borderRadius: "20px"}}>
                 {/* added all the sx fontSize parameters to force icons to be responsive */}
-                <Tab icon={<HistoryIcon sx={{fontSize: { xs: 20, sm: 25, md: 20, lg: 25 }}} />} label="History" sx={{fontSize: { xs: 12, sm: 14, md: 14, lg: 14 }}} />
-                <Tab icon={<FavoriteIcon sx={{fontSize: { xs: 20, sm: 25, md: 20, lg: 25 }}} />} label="Favorites" sx={{fontSize: { xs: 12, sm: 14, md: 16, lg: 14 }}} />
-                <Tab icon={<NearMeIcon sx={{fontSize: { xs: 20, sm: 25, md: 20, lg: 25 }}} />} label="Nearby" sx={{fontSize: { xs: 12, sm: 14, md: 16, lg: 14 }}} />
+                <Tab icon={<HistoryIcon sx={{fontSize: { xs: 18, sm: 20, md: 20, lg: 20 }}} />} label="History" sx={{fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }}} />
+                <Tab icon={<FavoriteIcon sx={{fontSize: { xs: 18, sm: 20, md: 20, lg: 20 }}} />} label="Favorites" sx={{fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }}} />
+                <Tab icon={<NearMeIcon sx={{fontSize: { xs: 18, sm: 20, md: 20, lg: 20 }}} />} label="Nearby" sx={{fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }}} />
             </Tabs>
         </AppBar>
     </FooterContainer>

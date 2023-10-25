@@ -11,7 +11,7 @@ const MapsTrailsPageContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
     gap: 0.5rem;
-    background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
+    background: var(--background-container-gradient);
     border-radius: 20px;
     padding: 0.5rem 5rem 10rem 5rem;
     max-width: 70vw;
@@ -22,9 +22,13 @@ const MapsTrailsPageContainer = styled.div`
 `
 const FlexContainer = styled.div`
     display: flex;
-    flex-flow: row wrap;
-    gap: 5rem;
+    flex-flow: row nowrap;
+    gap: 4rem;
     justify-content: center;
+    @media (max-width: 850px) {
+        flex-flow: column wrap;
+        gap: 1rem;
+    }
 `
 const MapsTrailsTitleText = styled.h2`
     @media (max-width: 768px) {

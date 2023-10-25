@@ -3,9 +3,16 @@ li {
     cursor: pointer;
     transition: 0.3s all ease-out;
 }
-li:hover{
-    color: blue;
+li.trail-detail:hover{
+    /* background-color: var(--red-ruby-color); */
+    background-color: var(--yellow-gamboge-color);
+    color: black;
 }
-li:active{
+li.trail-detail:active{
     scale: 125%;
+}
+@media screen and (max-width: 768px) {
+    li {
+        font-size: 0.8rem;
+    }
 }
