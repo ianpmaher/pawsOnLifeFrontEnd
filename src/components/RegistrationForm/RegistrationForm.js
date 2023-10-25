@@ -61,10 +61,10 @@ const RegistrationForm = (props) => {
     const handleRegister = async (event) => {
         const formData = {
             username: event.target.parentNode.children[0].value,
-            email: event.target.parentNode.children[1].value,
-            password: event.target.parentNode.children[2].value,
-            confirmPassword: event.target.parentNode.children[3].value,
-            captcha: event.target.parentNode.children[5].value
+            email: event.target.parentNode.children[2].value,
+            password: event.target.parentNode.children[4].value,
+            confirmPassword: event.target.parentNode.children[5].value,
+            captcha: event.target.parentNode.children[8].value
         }
         const captchaPassed = validateCaptcha(formData.captcha);
 
