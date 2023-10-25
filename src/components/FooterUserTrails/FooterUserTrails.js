@@ -8,7 +8,8 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 /* styled components */
 import styled from "styled-components";
-import { AppBar, Box } from "@mui/material";
+import AppBar from "@mui/material/AppBar"
+import Box from "@mui/material/Box"
 
 const FooterContainer = styled.div`
   position: fixed;

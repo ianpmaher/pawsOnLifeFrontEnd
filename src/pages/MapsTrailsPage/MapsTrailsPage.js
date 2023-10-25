@@ -1,10 +1,11 @@
 import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MapView from "../../components/MapView/MapView";
 import SearchForm from "../../components/SearchForm/SearchForm";
 import SearchHikingTrails from "../../components/SearchHikingTrails/SearchHikingTrails";
 import TrailList from "../../components/TrailList/TrailList";
 import styled from "styled-components";
+import { useLoadScript } from '@react-google-maps/api';
 
 const MapsTrailsPageContainer = styled.div`
     display: flex;
@@ -25,47 +26,60 @@ const MapsTrailsTitleText = styled.h1`
     }
 `
 
+  const placesLibrary = ['places'];
+
 const MapsTrailsPage = (props) => {
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
+    libraries: placesLibrary
+  })
   // need to store user input
   const [location, setLocation] = useState("");
-  // need to hold the user searched address to find trail
-  const [searchResults, setSearchResults] = useState([]);
   // need to store id of selected trail
   const [selectedPlaceId, setSelectedPlaceId] = useState(null);
 
-  // when user inputs address in input field handle event
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value);
-  };
-  const handleSearchResults = (results) => {
-    setSearchResults(results);
-  };
+  const [coordinates, setCoordinates] = useState([]);
+
+  const [ map, setMap ] = useState(null);
+
+  const [service, setService] = useState(null);
+
+  useEffect( () => {
+    if(selectedPlaceId){
+      console.log("Location selected updated:", selectedPlaceId);
+    if(map && selectedPlaceId) map.panTo(selectedPlaceId.geometry.location)
+    }
+    
+  }, [selectedPlaceId, map, coordinates])
 
   return (
     <MapsTrailsPageContainer>
       <MapsTrailsTitleText>Find Hiking Trails Near You</MapsTrailsTitleText>
       <SearchForm
         location={location}
-        handleLocationChange={handleLocationChange}
         setLocation={setLocation}
+        setCoordinates={setCoordinates}
+        map={map}
       />
-      <SearchHikingTrails
-        location={location}
-        onSearchResults={handleSearchResults}
-      />
+      
       <div className="result">
         <MapView
-          selectedPlaceId={selectedPlaceId}
-          searchResults={searchResults}
+          map={map}
+          setMap={setMap}
+          isLoaded={isLoaded}
+          coordinates={coordinates}
+          service={service}
+          setService={setService}
         />
         <TrailList
-          searchResults={searchResults}
           setSelectedPlaceId={setSelectedPlaceId}
+          coordinates={coordinates}
+          service={service}
         />
       </div>
       <FooterUserTrails />
     </MapsTrailsPageContainer>
-  )
+  );
 }
 
 export default MapsTrailsPage;
