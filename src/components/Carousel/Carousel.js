@@ -19,7 +19,7 @@ const Card = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue-sapphire-color);
+    background-color: var(--blue-deep-color);
     padding: 2rem 1rem;
     border-radius: 20px;
     margin: 0.5rem auto;

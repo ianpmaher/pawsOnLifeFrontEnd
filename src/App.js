@@ -1,11 +1,9 @@
 import React from 'react'
 // import ROUTER
 import { Route, Routes } from 'react-router-dom'
-import { useState } from "react";
 import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Switch from "@mui/material/Switch";
 import CssBaseline from "@mui/material/CssBaseline";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import HomePage from './pages/HomePage/HomePage';
@@ -14,6 +12,7 @@ import LoginPage from "./pages/LoginPage/LoginPage"
 import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import DogWaterRecPage from './pages/DogWaterRecPage/DogWaterRecPage';
 
 function App() {
     
@@ -47,6 +46,7 @@ function App() {
                     <Route path="/trails" element={<MapsTrailsPage />} />
                     <Route path="/profile" element={<UserProfilePage/>} />
                     <Route path="/register" element={<RegistrationPage/>} />
+                    <Route path="/water" element={<DogWaterRecPage/>} />
                 </Routes>
             </div>
         </ThemeProvider>

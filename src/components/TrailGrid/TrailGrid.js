@@ -80,7 +80,7 @@ const TrailCard = ({title, url, content, review}) => {
     )
 }
 
-const Main = (props) => {
+const TrailGrid = (props) => {
     /* I have these placeholders for now, just looking at margins and stuff */
     /*  */
    
@@ -99,4 +99,4 @@ const Main = (props) => {
     )
 }
 
-export default Main
+export default TrailGrid
