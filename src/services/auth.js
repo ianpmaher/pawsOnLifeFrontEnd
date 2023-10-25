@@ -15,9 +15,12 @@ export async function isAuthorized(){
 export async function VerifyUser(id, validator){
     const result = await fetch("https://dev.pawson.life/confirmRegister", {
         method: "POST",
+        headers:{
+            "Content-Type": "application/json",
+        },
         body: JSON.stringify({
             id: id,
-            validator: validator
+            validation: validator
         })
     });
     let validated = false;
