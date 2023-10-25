@@ -12,6 +12,7 @@ import LoginPage from "./pages/LoginPage/LoginPage"
 import MapsTrailsPage from "./pages/MapsTrailsPage/MapsTrailsPage"
 import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
+import SuccessPage from './pages/SuccessPage/SuccessPage';
 import DogWaterRecPage from './pages/DogWaterRecPage/DogWaterRecPage';
 import SuccessPage from './pages/SuccessPage/SuccessPage';
 
