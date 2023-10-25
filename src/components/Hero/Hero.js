@@ -22,7 +22,7 @@ const DivContainer = styled.div`
     align-items: center;
     min-width: 20rem;
     min-height: 8rem;
-    background: var(--green-dark-color);
+    background: var(--blue-deep-color);
     border-radius: 20px;
 `
 const HeroText = styled.p`

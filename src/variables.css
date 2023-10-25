@@ -23,7 +23,7 @@
     --bark-shadowed-color:rgb(153,147,138);
     --bark-dark-color: rgb(59,65,57);
     --blue-deep-color: rgb(22, 26, 43);
-    --blue-navy-color: rgb(59, 62, 96);
+    --blue-navy-color: rgb(59, 62, 96); /* #3b3e60 */
     --blue-royal-color: rgb(70, 137, 196);
     /* Coolors */
     --green-olive-color: #606c38;
@@ -38,9 +38,7 @@
     /* --background-gradient: linear-gradient(circle, var(--green-olive-color) 0%, var(--green-nice-color) 33%, var(--green-bright-color) 66%, var(--green-pretty-color)); */
     --background-gradient: radial-gradient(circle 10rem at 91% 20%, white, var(--yellow-sun-color) 50%, #a0d2db 1%, #386e9d);
 
-    --background-container-gradient: linear-gradient(220deg, var(--blue-navy-color) 0%, var(--green-nice-color) 33%, var(--green-forest-color) 66%, var(--green-pretty-color) 100%);
-
-
+    --background-container-gradient: linear-gradient(180deg, var(--blue-navy-color) 0%, var(--green-nice-color) 33%, var(--green-forest-color) 66%, var(--green-pretty-color) 100%);
 
     /* --background-pattern-color: #161a2b; */
 
