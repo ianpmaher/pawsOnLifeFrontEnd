@@ -70,8 +70,8 @@ const MapsTrailsPage = (props) => {
             setLocation={setLocation}
             setCoordinates={setCoordinates}
             map={map}
+
         />
-        
         <div className="result">
             <FlexContainer>
                 <MapView
