@@ -1,3 +1,11 @@
 li {
-    font-size: 1.1rem;
+    font-size: 1.0rem;
+    cursor: pointer;
+    transition: 0.3s all ease-out;
+}
+li:hover{
+    color: blue;
+}
+li:active{
+    scale: 125%;
 }
