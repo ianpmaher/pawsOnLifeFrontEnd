@@ -23,8 +23,9 @@
     --bark-shadowed-color:rgb(153,147,138);
     --bark-dark-color: rgb(59,65,57);
     --blue-deep-color: rgb(22, 26, 43);
-    --blue-navy-color: rgb(59, 62, 96);
-
+    --blue-navy-color: rgb(59, 62, 96); /* #3b3e60 */
+    --blue-royal-color: rgb(70, 137, 196);
+    /* Coolors */
     --green-olive-color: #606c38;
     --green-forest-color: #283618;
     --green-nice-color: #4d908e;
@@ -32,15 +33,14 @@
     --green-bright-color: #90be6d;
 
     /* container background */
-    --background-gradient: linear-gradient(110deg, var(--orange-alloy-color) 0%, var(--orange-rust-color) 33%, var(--champagne-color) 100%);
+    /* --background-gradient: linear-gradient(110deg, var(--orange-alloy-color) 0%, var(--orange-rust-color) 33%, var(--champagne-color) 100%); */
+    
+    /* --background-gradient: linear-gradient(circle, var(--green-olive-color) 0%, var(--green-nice-color) 33%, var(--green-bright-color) 66%, var(--green-pretty-color)); */
+    --background-gradient: radial-gradient(circle 10rem at 91% 20%, white, var(--yellow-sun-color) 50%, #a0d2db 1%, #386e9d);
 
-    --background-container-gradient: linear-gradient(110deg, var(--black-root-color) 0%, var(--blue-navy-color) 100%);
+    --background-container-gradient: linear-gradient(180deg, var(--blue-navy-color) 0%, var(--green-nice-color) 33%, var(--green-forest-color) 66%, var(--green-pretty-color) 100%);
 
-
-    /* sun radial gradient */
-    --background-sun-gradient: radial-gradient(circle 10rem at 92% 13%, white, yellow, lightyellow, aqua);
-
-    --background-pattern-color: #161a2b 
+    /* --background-pattern-color: #161a2b; */
 
     /* Ian: I made this awesome pup paw svg using Figma! Needed to tool around to make it a single path though. */
     --background-pattern-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 40' width='44' height='40'%3E%3Cpath fill='%2352597d' fill-opacity='0.4' d='M8.48223 26.5C7.73143 28.4932 6.99999 43 17.5 35.5C19.369 34.165 25.3826 32.9217 27 34C33 38 40 38.5 36.5 26M8.48223 26.5C13.5 23 18.5591 17.3165 21 16.5M8.48223 26.5C-4.5 18 6.5 12.5 6.5 12.5C10 8.5 9.5 21.5 21 16.5M36.5 26C35.3961 24.8532 28.9491 15.9442 21 16.5M36.5 26C34 23.3875 33.6367 15 34.1752 15C39.3882 11.2438 40.5 14.5 40.5 14.5C46.0623 30.5 36.772 25.6327 36.5 26ZM21 16.5C20.2471 16.5526 21.7712 16.277 21 16.5ZM21 16.5C22.5996 15.9711 23.9717 15.6375 25.5 14M21 16.5C20.2209 16.7576 21.7401 16.4842 21 16.5ZM21 16.5C14 20 10.1975 13.0917 12.5 5.5C21.6311 2.57806 24.6929 10.6169 25.5 14M25.5 14C25.0688 10.3372 24.5698 1.68323 28.5 2.5C43.5 12.9609 29.1287 22.1788 25.5 14ZM25.5 14C25.4204 13.6278 25.6174 14.9971 25.5 14Z' stroke="black" stroke-width="3" stroke-linecap="round" %3E%3C/path%3E%3C/svg%3E");

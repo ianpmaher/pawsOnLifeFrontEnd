@@ -1,10 +1,10 @@
-
 import styled from "styled-components";
 import { useState, useEffect } from "react";
+import "./TrailList.css"
 const UlTrail = styled.ul`
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
 `
 
 const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
@@ -32,7 +32,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
     <div id="results">
       <UlTrail>
         {trails.length ? trails.map((result, index) => 
-          <li key={index} onClick={() => setSelectedPlaceId(result)}>
+          <li key={index} onClick={() => setSelectedPlaceId(result)} className="trail-detail">
             {result.name}
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
