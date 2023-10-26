@@ -19,6 +19,10 @@ const Button = styled.button`
     &:active {
         background-color: var(--yellow-sun-color);
     }
+    @media (max-width: 768px) {
+        font-size: 0.9rem;
+        max-width: 5rem;
+    }
 `
 
 export default Button;

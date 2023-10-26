@@ -5,24 +5,31 @@ import Button from "../Button/Button";
 import Modal from "@mui/material/Modal";
 
 const ModalContainer = styled.div`
-    width: 30vw;
     background: var(--blue-sapphire-color);
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 30vh auto;
-    padding: 2rem;
+    @media (max-width: 768px) {
+        margin: 0 auto;
+        width: 100%;
+    }
 `
 const Card = styled.div`
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
     background-color: var(--blue-sapphire-color);
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 20px;
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+        height: min-content;
+        width: 20rem;
+        margin: 0 auto;
+    }
 `
 
 const ModalFun = () => {
@@ -33,7 +40,7 @@ const ModalFun = () => {
     return(
         <div>
             {/* TODO aria label */}
-            <Button onClick={handleOpen} style={{fontSize: "1rem", textAlign: "center", minWidth: "fit-content"}}>About Us</Button>
+            <Button onClick={handleOpen} style={{textAlign: "center", minWidth: "fit-content"}}>About Us</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
