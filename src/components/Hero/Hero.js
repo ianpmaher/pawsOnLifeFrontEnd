@@ -15,21 +15,31 @@ const HeroContainer = styled.div`
         flex-flow: column wrap;
         gap: 0.5rem;
     }
+    @media (max-width: 1000px) {
+        gap: 1rem;
+    }
 `;
 const DivContainer = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
-    min-width: 20rem;
-    min-height: 8rem;
+    
+    min-height: 5rem;
     background: var(--blue-deep-color);
+    padding: 0.1rem 1rem;
     border-radius: 20px;
+    @media (max-width: 768px) {
+        min-width: 10rem;
+    }
+    @media (max-width: 1000px) {
+        min-width: 15rem;
+    }
 `
 const HeroText = styled.p`
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 500;
     @media (max-width: 768px) {
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
     @media (max-width: 1000px) {
         font-size: 0.8rem;
@@ -47,8 +57,8 @@ const FlexContainer = styled.div`
 `;
 
 const ImgCard = styled.img`
-    max-height: 25vh;
-    max-width: 25vw;
+    max-height: 30vh;
+    max-width: 30vw;
     border-radius: 20px;
 `;
 

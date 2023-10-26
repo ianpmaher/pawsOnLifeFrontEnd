@@ -16,6 +16,10 @@ const HomePageContainer = styled.div`
     @media (max-width: 768px) {
         padding: 1rem 2rem 5rem 2rem;
     }
+    @media (max-width: 500px) {
+        gap: 0.5rem;
+        
+    }
 `
 
 const HomePage = (props) => {

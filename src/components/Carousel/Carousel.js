@@ -10,8 +10,8 @@ const ImgCard = styled.img`
     max-width: 20rem;
     max-height: 20rem;
     @media (max-width: 768px) {
-        max-width: 10rem;
-        max-height: 10rem;
+        max-width: 15rem;
+        max-height: 15rem;
     }
 `
 const Card = styled.div`
