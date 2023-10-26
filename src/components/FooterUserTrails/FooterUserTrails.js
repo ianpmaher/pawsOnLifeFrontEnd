@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import HistoryIcon from "@mui/icons-material/History";
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import NearMeIcon from "@mui/icons-material/NearMe";
 /* =============== */
 import AppBar from "@mui/material/AppBar";
@@ -13,6 +14,7 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 /* styled components */
 import styled from "styled-components";
+import UserProfilePage from "../../pages/UserProfilePage/UserProfilePage";
 
 const FooterContainer = styled.div`
     position: fixed;
@@ -65,6 +67,9 @@ const FooterUserTrails = (props) => {
             <TabPanel value={activeTab} index={2}>
                 {/* ideally customize to display users' data */}
             </TabPanel>
+            <TabPanel value={activeTab} index={3}>
+                {/* <UserProfilePage/> */}
+            </TabPanel>
             <AppBar position="static" sx={{ flexFlow: "row wrap", justifyContent: "center", borderRadius: "20px" }}>
                 <Tabs
                     value={activeTab}
@@ -87,6 +92,13 @@ const FooterUserTrails = (props) => {
                         icon={<NearMeIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
                         label="Nearby"
                         sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                    />
+                    <Tab
+                        icon={<ManageAccountsIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        label="Profile"
+                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                        type="a"
+                        href="/profile"
                     />
                 </Tabs>
             </AppBar>
