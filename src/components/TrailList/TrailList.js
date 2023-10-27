@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import "./TrailList.css"
+import "./TrailList.css";
+import ModalFun from '../ModalFun/ModalFun';
+import UserReviewForm from "../UserReviewForm/UserReviewForm";
+
 const UlTrail = styled.ul`
     list-style-type: none;
     padding: 0;
@@ -10,6 +13,17 @@ const UlTrail = styled.ul`
 const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
   
   const [trails, setTrails] = useState([]);
+
+  const [modal, setModal] = useState(false);
+
+  const handleSelect = (result) => {
+    setModal(result.place_id);
+    setSelectedPlaceId(result);
+  }
+
+  const handleBlur = (event) => {
+    setModal(null);
+  }
 
   useEffect(() => {
     const request = {
@@ -32,11 +46,13 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
     <div id="results">
       <UlTrail>
         {trails.length ? trails.map((result, index) => 
-          <li key={index} onClick={() => setSelectedPlaceId(result)} className="trail-detail">
-            {result.name}
+          <li key={index} >
+            <span onClick={() => handleSelect(result)} onBlur={handleBlur} className="trail-detail">
+            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" content={<UserReviewForm />}>More Info</ModalFun>}
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
       </UlTrail>
+      
     </div>
   );
 };
