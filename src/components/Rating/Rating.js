@@ -1,12 +1,17 @@
 import styled, { css } from 'styled-components'
 import { useState } from 'react';
+import DogBone from "../DogBone/DogBone";
 
 const RatingContainer = styled.div`
     display: flex;
-    flex-display: row;
-    flex-direction: row;
-    align-items: center;
+    flex-flow: row wrap;
+    align-items: start;
     justify-content: space-around;
+    height: fit-content;
+    margin-bottom: 1rem;
+    @media (max-width: 768px) {
+        gap: 0.5rem;
+    }
 `
 
 const RateSpan = styled.span`
@@ -14,14 +19,14 @@ ${(props) => {
         return css`
     width: 20px;
     height: 20px;
-    background: ${props.$color};
+    background-color: ${props.$color};
     border-radius: 25%;
     `
     }}   
 `
 
 const Value = styled.span`
-
+    background-color: var(--blue-sapphire-color);
 `
 
 const Rating = ({ readOnly, initialValue, ratings }) => {

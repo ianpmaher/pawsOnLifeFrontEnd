@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { isAuthorized } from '../../services/auth';
 import Rating from "../Rating/Rating";
+import DogBone from "../DogBone/DogBone";
 
 const ReviewContainer = styled.div`
     display: flex;
@@ -94,7 +95,7 @@ const UserReviewForm = ({ isForm, review }) => {
                 <Label>Accessibility: <Rating /></Label>
                 <Label>Difficulty: <Rating /></Label>
                 <Label>Restrooms: <Rating /></Label>
-                <Label>Water Fountains: <Rating /></Label>
+                <Label>Water Fountains: <Rating url={DogBone}/></Label>
                 <FancyBorder />
             </ReviewContainer>
             :

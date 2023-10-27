@@ -12,7 +12,7 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 30vh auto;
+    margin: 5vh auto;
     padding: 2rem;
     @media (max-width: 768px) {
         margin: 0 auto;
@@ -27,6 +27,7 @@ const Card = styled.div`
     background-color: var(--blue-sapphire-color);
     padding: 0.5rem;
     border-radius: 20px;
+    min-height: fit-content;
     @media (max-width: 768px) {
         font-size: 0.8rem;
         height: min-content;
