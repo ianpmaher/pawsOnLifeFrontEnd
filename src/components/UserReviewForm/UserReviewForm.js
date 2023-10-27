@@ -65,7 +65,7 @@ const FancyBorder = styled.span`
     }
 `;
 
-const UserReviewForm = ({ }) => {
+const UserReviewForm = ({ isForm, review }) => {
     const [validated, setValidated] = useState(false);
     useEffect(() => {
         async function checkValidation() {
@@ -75,36 +75,31 @@ const UserReviewForm = ({ }) => {
         checkValidation();
     })
 
-    /*
-    dogsAllowed: Boolean(req.body.dogsAllowed),
-      hikedThisTrail: Boolean(req.body.hikedThisTrail),
-      rating: Number(req.body.rating),
-      difficulty: String(req.body.difficulty),
-      length: Number(req.body.length),
-      restroomsAvailable: Boolean(req.body.restroomsAvailable),
-      waterFountain: Boolean(req.body.waterFountain),
-      lastUpdated: new Date(req.body.lastUpdated),
-      placesID: String(req.body.placesID),
-    */
-    return <ReviewContainer>
-        <Label>Dog Friendly</Label><InputField name="dogsAllowed" type="checkbox" className="input-area" />
-        <Label>Cat Friendly</Label><InputField name="catsAllowed" type="checkbox" className="input-area" />
+    return (!isForm && review)? <ReviewContainer>
+        <Label>Dog Friendly</Label><InputField readOnly={true} name="dogsAllowed" type="checkbox" className="input-area" value={review.dogsAllowed ? true : false}/>
+        <Label>Cat Friendly</Label><InputField readOnly={true} name="catsAllowed" type="checkbox" className="input-area" value={review.catsAllowed ? true : false}/>
         <FancyBorder />
-        <Label>Accessibility: <Rating /></Label>
-        <Label>Difficulty: <Rating /></Label>
-        <Label>Restrooms: <Rating /></Label>
-        <Label>Water Fountains: <Rating /></Label>
+        <Label>Accessibility: <Rating readOnly={true} initialValue={review.accessibility}/></Label>
+        <Label>Difficulty: <Rating readOnly={true} ratings={review.ratings} initialValue={review.difficulty}/></Label>
+        <Label>Restrooms: <Rating readOnly={true} ratings={review.ratings} initialValue={review.restrooms}/></Label>
+        <Label>Water Fountains: <Rating readOnly={true} ratings={review.ratings} initialValue={review.waterFountains}/></Label>
         <FancyBorder />
-
     </ReviewContainer>
-    // return validated ?
-    //     <ReviewContainer>
-    //         <Label>Test<InputField name="dogsAllowed" type="checkbox" className="input-area" /></Label>
-    //         <FancyBorder></FancyBorder>
-    //     </ReviewContainer>
-    //     : 
-    //     <>You must be logged in to do this.
-    //     </>
+        :
+        validated ?
+            <ReviewContainer>
+                <Label>Dog Friendly</Label><InputField name="dogsAllowed" type="checkbox" className="input-area" />
+                <Label>Cat Friendly</Label><InputField name="catsAllowed" type="checkbox" className="input-area" />
+                <FancyBorder />
+                <Label>Accessibility: <Rating /></Label>
+                <Label>Difficulty: <Rating /></Label>
+                <Label>Restrooms: <Rating /></Label>
+                <Label>Water Fountains: <Rating /></Label>
+                <FancyBorder />
+            </ReviewContainer>
+            :
+            <>You must be logged in to do this.
+            </>
 }
 
 export default UserReviewForm;

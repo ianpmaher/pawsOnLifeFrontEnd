@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import "./TrailList.css";
 import ModalFun from '../ModalFun/ModalFun';
-import UserReviewForm from "../UserReviewForm/UserReviewForm";
+import ShowReviews from "../ShowReviews/ShowReviews";
 
 const UlTrail = styled.ul`
     list-style-type: none;
@@ -48,7 +48,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
         {trails.length ? trails.map((result, index) => 
           <li key={index} >
             <span onClick={() => handleSelect(result)} onBlur={handleBlur} className="trail-detail">
-            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" content={<UserReviewForm />}>More Info</ModalFun>}
+            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" content={<ShowReviews id={result.place_id}/>}>More Info</ModalFun>}
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
       </UlTrail>
