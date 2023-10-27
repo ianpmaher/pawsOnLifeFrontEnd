@@ -14,6 +14,10 @@ const ModalContainer = styled.div`
     text-align: center;
     margin: 30vh auto;
     padding: 2rem;
+    @media (max-width: 768px) {
+        margin: 0 auto;
+        width: 100%;
+    }
 `
 const Card = styled.div`
     display: flex;
@@ -23,6 +27,12 @@ const Card = styled.div`
     background-color: var(--blue-sapphire-color);
     padding: 0.5rem;
     border-radius: 20px;
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+        height: min-content;
+        width: 20rem;
+        margin: 0 auto;
+    }
 `
 
 const ModalFun = ({title, id, content}) => {

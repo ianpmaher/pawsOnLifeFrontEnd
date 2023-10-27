@@ -10,6 +10,10 @@ const UlTrail = styled.ul`
     margin: 0 auto;
 `
 
+const ModalStyled = {
+    margin: "0 auto",
+}
+
 const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
   
   const [trails, setTrails] = useState([]);
@@ -48,7 +52,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
         {trails.length ? trails.map((result, index) => 
           <li key={index} >
             <span onClick={() => handleSelect(result)} onBlur={handleBlur} className="trail-detail">
-            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" content={<ShowReviews id={result.place_id}/>}>More Info</ModalFun>}
+            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" style={ModalStyled} content={<ShowReviews id={result.place_id}/>}>More Info</ModalFun>}
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
       </UlTrail>
