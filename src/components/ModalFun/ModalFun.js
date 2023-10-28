@@ -11,8 +11,6 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 5vh auto;
-    padding: 2rem;
     @media (max-width: 768px) {
         margin: 0 auto;
         width: 100%;
@@ -20,13 +18,12 @@ const ModalContainer = styled.div`
 `
 const Card = styled.div`
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
+    top: 5rem;
+    left: 1;
+    right: 1;
     background-color: var(--blue-sapphire-color);
     padding: 1rem;
     border-radius: 20px;
-    min-height: fit-content;
     @media (max-width: 768px) {
         font-size: 0.8rem;
         height: min-content;

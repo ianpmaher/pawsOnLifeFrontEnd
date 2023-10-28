@@ -38,6 +38,7 @@ const DivContainer = styled.div`
 const HeroText = styled.p`
     font-size: 1.35rem;
     font-weight: 500;
+    font-family: "Young Serif", serif;
     @media (max-width: 768px) {
         font-size: 0.8rem;
     }

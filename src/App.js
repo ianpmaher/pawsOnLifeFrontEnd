@@ -19,16 +19,17 @@ import { isAuthorized } from './services/auth';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { teal } from '@mui/material/colors';
 
 /* darkmode/lightmode switch */
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
 function App() {
-    
+
     const [loggedIn, setLoggedIn] = React.useState(false);
 
-    React.useEffect( () => {
-        async function CheckLoggedIn(){
+    React.useEffect(() => {
+        async function CheckLoggedIn() {
             const VerifyLogin = await isAuthorized();
             setLoggedIn(VerifyLogin);
             console.log("User is logged in?", VerifyLogin)
@@ -37,29 +38,28 @@ function App() {
     })
     /* https://mui.com/material-ui/customization/dark-mode/ */
     /* mainly utilizing this functionality */
-    
+
     // const prefersDarkModeFunc = useMediaQuery("(prefers-color-scheme: dark)");
 
     const ToggleColorMode = () => {
         const theme = useTheme();
         const colorMode = React.useContext(ColorModeContext);
         const isDark = theme.palette.mode === 'dark';
-    
+
         return (
             <IconButton
-                {...switchLabel}
                 checked={isDark}
                 onClick={colorMode.toggleColorMode}
                 {...theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             />
         );
     };
-    
+
     const [mode, setMode] = React.useState('dark');
     const colorMode = React.useMemo(
         () => ({
             toggleColorMode: () => {
-                    setMode((prevMode) => (prevMode === "light" ? "dark" : "light"))
+                setMode((prevMode) => (prevMode === "light" ? "dark" : "light"))
             },
         }),
         [],
@@ -73,9 +73,12 @@ function App() {
                 palette: {
                     /* asks client browser if set preference for dark mode! mui <3 */
                     mode,
+                    primary: {
+                        main: teal,
+                    },
                 },
             }),
-        [ mode ],
+        [mode],
     )
 
     return (
@@ -84,18 +87,18 @@ function App() {
             <ThemeProvider theme={theme}>
                 <CssBaseline enableColorScheme />
                 <div className="App" theme={theme}>
-                    <ToggleColorMode/>
+                    <ToggleColorMode />
                     <Header theme={theme} loggedIn={loggedIn} />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn}/>} />
-                    <Route path="/trails" element={<MapsTrailsPage />} />
-                    <Route path="/profile" element={<UserProfilePage/>} />
-                    <Route path="/register" element={<RegistrationPage/>} />
-                    <Route path="/water" element={<DogWaterRecPage/>} />
-                    <Route path="/confirmRegister" element={<SuccessPage/>} />
-                    <Route path="/logout" element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
-                </Routes>
+                    <Routes>
+                        <Route path="/" element={<HomePage />} />
+                        <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} />} />
+                        <Route path="/trails" element={<MapsTrailsPage />} />
+                        <Route path="/profile" element={<UserProfilePage />} />
+                        <Route path="/register" element={<RegistrationPage />} />
+                        <Route path="/water" element={<DogWaterRecPage />} />
+                        <Route path="/confirmRegister" element={<SuccessPage />} />
+                        <Route path="/logout" element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn} />} />
+                    </Routes>
                 </div>
             </ThemeProvider>
         </ColorModeContext.Provider>
