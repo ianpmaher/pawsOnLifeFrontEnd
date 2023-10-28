@@ -48,13 +48,12 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
   useEffect(() => {
     if (coordinates?.lat && typeof coordinates === "object") {
       console.log("Updating..");
-      console.log(`Lat is ${center.lat}`);
-      console.log(`Long is ${center.lng}`);
       const bounds = new window.google.maps.LatLngBounds({
         lat: coordinates.lat(),
         lng: coordinates.lng(),
       });
-      console.log(bounds);
+      console.log(coordinates.lat());
+      console.log(coordinates.lng());
       map.fitBounds(bounds);
       setMap(map);
       updateMap();
@@ -73,7 +72,10 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
         {}
         <></>
       </GoogleMap>
-      <CalcDogWater latitude={center.lat} longitude={center.lng} />
+      <CalcDogWater
+        latitude={coordinates.lat()}
+        longitude={coordinates.lng()}
+      />
     </ContainerStyle>
   ) : (
     <></>
