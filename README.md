@@ -38,7 +38,7 @@ On our frontend we utilize React and React DOM for our user interface to ensure 
 
 ## Helpful Links ##
 
-Live Site        | www.pawson.life:4012
+Live Site        | www.pawson.life
 -------------    | -------------
 GitHub backend   |  https://github.com/ianpmaher/pawsOnLifeBackEnd
 GitHub frontend  |  https://github.com/ianpmaher/pawsOnLifeFrontEnd
