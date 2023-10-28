@@ -24,6 +24,14 @@ const pages = [
     {
         title: "Maps & Trails",
         destination: "/trails",
+    },
+    {
+        title: "Log In",
+        destination: "/login",
+    },
+    {
+        title: "Registration",
+        destination: "/register",
     }
 ];
 
@@ -36,8 +44,7 @@ const FlexContainer = styled.div`
 
 // https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu
 // passing down ColorTheme (Dark Mode) as a prop
-const Nav = (props) => {
-
+const Nav = ({loggedIn}) => {
     // TODO: Destructure out regular props and style props from args for possible different handling
 
     /* declare state for open/close Nav menu */
@@ -51,38 +58,29 @@ const Nav = (props) => {
         setAnchorElemNav(null);
     };
     const setPages = () => {
-        if (pages.length === 2) {
-            if (localStorage.getItem("token") !== null) {
-                pages.push(
-                    {
+            if (loggedIn) {
+                console.log("Nav should show logged in sections - logged in is", loggedIn)
+                pages[2] = {
                         title: "Account",
                         destination: "/profile",
-                    },
-                    {
+                    };
+                pages[3] = {
                         title: "Log Out",
                         destination: "/logout",
-                    })
+                    };
             } else {
-                pages.push({
-                    title: "Log In",
-                    destination: "/login",
-                },
-                    {
-                        title: "Registration",
-                        destination: "/register",
-                    })
+                console.log("Nav should show logged out sections - logged in is", loggedIn)
             }
-        }
     }
     useEffect(() => {
         setPages();
     },
-    []
+    [loggedIn, setPages]
     )
     setPages();
     return (
        <FlexContainer>
-            <AppBar position="sticky" {...props} sx={{ borderRadius: 5 }}>
+            <AppBar position="sticky" sx={{ borderRadius: 5 }}>
                 <Toolbar  >
                     {/* in MUI, sx props are inline styles. "m" is margin */}
                     {/* https://mui.com/system/getting-started/the-sx-prop/ */}

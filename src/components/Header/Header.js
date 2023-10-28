@@ -20,12 +20,12 @@ const HeaderText = styled.h1`
     }
 `;
 
-const Header = () => {
+const Header = ({loggedIn}) => {
     return (
         <div>
             <HeaderContainer>
                 <HeaderText>PawsOn.Life</HeaderText>
-                <Nav />
+                <Nav loggedIn={loggedIn} />
             </HeaderContainer>
         </div>
     );
