@@ -48,8 +48,9 @@ function App() {
             <IconButton
                 checked={isDark}
                 onClick={colorMode.toggleColorMode}
-                {...theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-            />
+            >
+                {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton>
         );
     };
 
