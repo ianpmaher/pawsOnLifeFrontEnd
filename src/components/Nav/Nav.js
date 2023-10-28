@@ -71,7 +71,7 @@ const Nav = ({loggedIn}) => {
             } else {
                 console.log("Nav should show logged out sections - logged in is", loggedIn)
             }
-    },[pages])
+    },[pages, loggedIn])
     useEffect(() => {
         setPages();
     },
