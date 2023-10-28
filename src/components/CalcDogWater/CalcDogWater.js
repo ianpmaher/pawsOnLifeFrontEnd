@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as geo from '../../services/geo.js'
 
 const CalcDogWater = ({ latitude, longitude }) => {
@@ -7,13 +7,15 @@ const CalcDogWater = ({ latitude, longitude }) => {
   const [result, setResult] = useState("");
   const [userMins, setUserMins] = useState("");
 
-  const dogWaterCalc = () => {
+  const dogWaterCalc = async () => {
     let dogWater = 0;
     const weight = dogWeight;
       const getLoc = (latitude && longitude) ? {lat: latitude, long: longitude} : geo.getLocation();
       if(getLoc){
-        const getTemp = parseInt(geo.getWeather(getLoc).temperature);
-        setUserTemp(getTemp);
+        const getTemp = await geo.getWeather(getLoc)
+        console.log("Getting temp:", getTemp);
+        const temp = parseInt(getTemp.temperature);
+        setUserTemp(temp);
       }else{
         alert("Make error handling eventually")
       }

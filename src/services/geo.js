@@ -21,5 +21,8 @@ export async function getWeather({lat, long}){
     const wapi = await fetch(`https://api.weather.gov/points/${lat},${long}`)
     const forecast = (await wapi.json()).properties.forecast;
     console.log(forecast);
-    return forecast;
+    const weather = await fetch(`${forecast}/hourly`)
+    const result = (await weather.json()).properties.periods[0];
+    console.log(result);
+    return result;
 }

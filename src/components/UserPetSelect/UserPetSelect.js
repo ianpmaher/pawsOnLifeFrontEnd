@@ -30,7 +30,7 @@ const UserPetSelect = ({setPet, defPet}) => {
                         Canine or Feline?
                     </InputLabel>
                     <NativeSelect
-                        defaultValue={showPet}
+                        defaultValue={showPet || "Dog"}
                         onChange={setPet}
                         inputProps={{
                             name: 'pet',
