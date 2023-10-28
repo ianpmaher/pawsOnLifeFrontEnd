@@ -14,16 +14,27 @@ import UserProfilePage from './pages/UserProfilePage/UserProfilePage';
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage';
 import SuccessPage from './pages/SuccessPage/SuccessPage';
 import DogWaterRecPage from './pages/DogWaterRecPage/DogWaterRecPage';
+import LogoutPage from './pages/LogoutPage/LogoutPage';
+import { isAuthorized } from './services/auth';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 
 /* darkmode/lightmode switch */
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
-const switchLabel = { inputProps: { 'aria-label': 'Switch light mode dark mode' } };
 
 function App() {
     
+    const [loggedIn, setLoggedIn] = React.useState(false);
+
+    React.useEffect( () => {
+        async function CheckLoggedIn(){
+            const VerifyLogin = await isAuthorized();
+            setLoggedIn(VerifyLogin);
+            console.log("User is logged in?", VerifyLogin)
+        }
+        CheckLoggedIn();
+    })
     /* https://mui.com/material-ui/customization/dark-mode/ */
     /* mainly utilizing this functionality */
     
@@ -74,16 +85,17 @@ function App() {
                 <CssBaseline enableColorScheme />
                 <div className="App" theme={theme}>
                     <ToggleColorMode/>
-                    <Header theme={theme} />
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/login" element={<LoginPage />} />
-                        <Route path="/trails" element={<MapsTrailsPage />} />
-                        <Route path="/profile" element={<UserProfilePage/>} />
-                        <Route path="/register" element={<RegistrationPage/>} />
-                        <Route path="/water" element={<DogWaterRecPage/>} />
-                        <Route path="/confirmRegister" element={<SuccessPage/>} />
-                    </Routes>
+                    <Header theme={theme} loggedIn={loggedIn} />
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn}/>} />
+                    <Route path="/trails" element={<MapsTrailsPage />} />
+                    <Route path="/profile" element={<UserProfilePage/>} />
+                    <Route path="/register" element={<RegistrationPage/>} />
+                    <Route path="/water" element={<DogWaterRecPage/>} />
+                    <Route path="/confirmRegister" element={<SuccessPage/>} />
+                    <Route path="/logout" element={<LogoutPage loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>} />
+                </Routes>
                 </div>
             </ThemeProvider>
         </ColorModeContext.Provider>

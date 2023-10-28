@@ -8,21 +8,24 @@ const HeaderContainer = styled.header`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 0 auto 0.25rem auto;
+    margin: 0.5rem auto auto auto;
     position: sticky;
 `;
 
 const HeaderText = styled.h1`
-    letter-spacing: 3px;
-    margin: 0.5rem auto
+    letter-spacing: 2px;
+    @media (max-width: 768px) {
+        letter-spacing: 0;
+        font-size: 1.3rem;
+    }
 `;
 
-const Header = () => {
+const Header = ({loggedIn}) => {
     return (
         <div>
             <HeaderContainer>
                 <HeaderText>PawsOn.Life</HeaderText>
-                <Nav />
+                <Nav loggedIn={loggedIn} />
             </HeaderContainer>
         </div>
     );

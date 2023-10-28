@@ -5,7 +5,6 @@ import Button from "../Button/Button";
 import Modal from "@mui/material/Modal";
 
 const ModalContainer = styled.div`
-    width: 30vw;
     background: var(--blue-sapphire-color);
     border-radius: 20px;
     display: flex;
@@ -20,12 +19,12 @@ const ModalContainer = styled.div`
     }
 `
 const Card = styled.div`
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
     background-color: var(--blue-sapphire-color);
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 20px;
     min-height: fit-content;
     @media (max-width: 768px) {

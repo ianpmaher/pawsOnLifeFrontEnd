@@ -10,8 +10,8 @@ const ImgCard = styled.img`
     max-width: 20rem;
     max-height: 20rem;
     @media (max-width: 768px) {
-        max-width: 10rem;
-        max-height: 10rem;
+        max-width: 15rem;
+        max-height: 15rem;
     }
 `
 const Card = styled.div`
@@ -74,7 +74,7 @@ const TrailCard = ({title, url, content, review}) => {
 const CarouselEl = (props) => {
     return (
         <div style={{maxWidth:"40vw", minWidth:"30vw", margin:"0 auto"}}>
-            <Carousel showThumbs={false}>
+            <Carousel showThumbs={false} showStatus={false}>
             {props.trails?.map((trail, index) => (
                 <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} review={trail?.review} />
             ))}

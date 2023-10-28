@@ -18,14 +18,19 @@ const FlexList = styled.ul`
     padding: 0;
     margin: 0;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     align-items: center;
+    justify-content: center;
 `
 const Social = styled.img`
     width: 50px;
     height: 50px;
     margin: 0 1rem;
     border-radius: 50%;
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
 `
 
 const Footer = (props) => {

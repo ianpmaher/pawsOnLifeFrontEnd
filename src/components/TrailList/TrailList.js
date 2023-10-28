@@ -3,19 +3,17 @@ import { useState, useEffect } from "react";
 import "./TrailList.css";
 import ModalFun from '../ModalFun/ModalFun';
 import ShowReviews from "../ShowReviews/ShowReviews";
-
 const UlTrail = styled.ul`
-    list-style-type: none;
-    padding: 0;
-    margin: 0 auto;
-`
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+`;
 
 const ModalStyled = {
     margin: "0 auto",
 }
 
 const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
-  
   const [trails, setTrails] = useState([]);
 
   const [modal, setModal] = useState(false);
@@ -37,15 +35,15 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
     };
 
     if (service) {
-      console.log("Updating service")
+      console.log("Updating service");
       service.textSearch(request, (results, status) => {
         if (status === window.google.maps.places.PlacesServiceStatus.OK) {
           setTrails(results);
-          console.log(results)
+          console.log(results);
         }
-      })
+      });
     }
-  }, [service])
+  }, [service]);
   return (
     <div id="results">
       <UlTrail>
@@ -56,7 +54,6 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
       </UlTrail>
-      
     </div>
   );
 };
