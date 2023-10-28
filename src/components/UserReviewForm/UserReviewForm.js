@@ -64,10 +64,6 @@ const FancyBorder = styled.span`
     }
 `;
 
-const ratingStyle = {
-    height: "4vh",
-}
-
 const UserReviewForm = ({ isForm, review }) => {
     const [validated, setValidated] = useState(false);
     useEffect(() => {
