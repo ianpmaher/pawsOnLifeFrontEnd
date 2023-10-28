@@ -25,7 +25,6 @@ const DivContainer = styled.div`
     align-items: center;
     
     min-height: 5rem;
-    background: var(--blue-deep-color);
     padding: 0.1rem 1rem;
     border-radius: 20px;
     @media (max-width: 768px) {
@@ -69,7 +68,6 @@ const Hero = (props) => {
             <FlexContainer>
                 <DivContainer>
                     <HeroText> Connecting humans and their animal companions with the natural world.</HeroText>
-
                 </DivContainer>
                 </FlexContainer>
             <ImgCard src="https://i.imgur.com/9PMNlbO.png" alt="doggy" />

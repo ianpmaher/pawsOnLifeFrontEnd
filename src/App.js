@@ -18,6 +18,7 @@ import { isAuthorized } from './services/auth';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Card from "@mui/material/Card"
 
 /* darkmode/lightmode switch */
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
@@ -45,12 +46,14 @@ function App() {
         const isDark = theme.palette.mode === 'dark';
 
         return (
-            <IconButton
-                checked={isDark}
-                onClick={colorMode.toggleColorMode}
-            >
-                {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-            </IconButton>
+            <Card sx={{borderRadius: 5}}>
+                <IconButton
+                    checked={isDark}
+                    onClick={colorMode.toggleColorMode}
+                >
+                    {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                </IconButton>
+            </Card>
         );
     };
 

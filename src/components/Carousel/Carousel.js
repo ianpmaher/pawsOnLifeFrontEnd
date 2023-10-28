@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import DogBone from '../DogBone/DogBone';
-
+import Card from "@mui/material/Card"
 
 const ImgCard = styled.img`
     width: 100%;
@@ -14,13 +14,12 @@ const ImgCard = styled.img`
         max-height: 15rem;
     }
 `
-const Card = styled.div`
+const DivCard = styled.div`
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    background-color: var(--blue-deep-color);
-    padding: 2rem 1rem;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
     margin: 0.5rem auto;
 `
@@ -34,40 +33,42 @@ const UlTrail = styled.ul`
 /* Props! */
 const TrailCard = ({title, url, content, review}) => {
     return (
-        <Card>
-            <UlTrail>
-                <h4>{title}</h4>
-                <ImgCard src={url} alt={title}/>
-                <li>{content}</li>
-                {/* ==================================== */}
-                {/* LOGIC FOR NUMBER OF BONES FOR REVIEWS */}
-                { review === 1 && <>
-                <li><DogBone /></li>
-                </>}
-                { review === 2 && <>
-                <li><DogBone />
-                <DogBone /></li>
-                </>}
-                { review === 3 && <>
-                <li><DogBone />
-                <DogBone />
-                <DogBone /></li>
-                </>}
-                { review === 4 && <>
-                <li><DogBone />
-                <DogBone />
-                <DogBone />
-                <DogBone /></li>
-                </>}
-                { review === 5 && <>
-                <li><DogBone />
-                <DogBone />
-                <DogBone />
-                <DogBone />
-                <DogBone /></li>
-                </>}
-            </UlTrail>
-        </Card>
+        <DivCard>
+            <Card>
+                <UlTrail>
+                    <h4>{title}</h4>
+                    <ImgCard src={url} alt={title}/>
+                    <li>{content}</li>
+                    {/* ==================================== */}
+                    {/* LOGIC FOR NUMBER OF BONES FOR REVIEWS */}
+                    { review === 1 && <>
+                    <li><DogBone /></li>
+                    </>}
+                    { review === 2 && <>
+                    <li><DogBone />
+                    <DogBone /></li>
+                    </>}
+                    { review === 3 && <>
+                    <li><DogBone />
+                    <DogBone />
+                    <DogBone /></li>
+                    </>}
+                    { review === 4 && <>
+                    <li><DogBone />
+                    <DogBone />
+                    <DogBone />
+                    <DogBone /></li>
+                    </>}
+                    { review === 5 && <>
+                    <li><DogBone />
+                    <DogBone />
+                    <DogBone />
+                    <DogBone />
+                    <DogBone /></li>
+                    </>}
+                </UlTrail>
+            </Card>
+        </DivCard>
     )
 }
 

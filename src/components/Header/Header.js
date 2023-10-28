@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Nav from "../Nav/Nav"
+import Nav from "../Nav/Nav";
+import Card from "@mui/material/Card";
 
 const HeaderContainer = styled.header`
     text-align: center;
@@ -19,11 +20,13 @@ const HeaderText = styled.h1`
     }
 `;
 
-const Header = ({loggedIn}) => {
+const Header = ({ loggedIn }) => {
     return (
         <div>
             <HeaderContainer>
-                <HeaderText>PawsOn.Life</HeaderText>
+                <Card>
+                    <HeaderText>PawsOn.Life</HeaderText>
+                </Card>
                 <Nav loggedIn={loggedIn} />
             </HeaderContainer>
         </div>

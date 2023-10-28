@@ -73,7 +73,7 @@ const FooterUserTrails = (props) => {
                     value={activeTab}
                     onChange={handleChange}
                     aria-label="icon label tabs"
-                    sx={{ backgroundColor: "rgba(0,0,0,0.6)", borderRadius: "20px" }}
+                    sx={{ backgroundColor: "inherit", borderRadius: "20px" }}
                 >
                     {/* added all the sx fontSize parameters to force icons to be responsive */}
                     <Tab
