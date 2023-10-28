@@ -72,9 +72,6 @@ function App() {
                 palette: {
                     /* asks client browser if set preference for dark mode! mui <3 */
                     mode,
-                    primary: {
-                        main: teal,
-                    },
                 },
             }),
         [mode],
