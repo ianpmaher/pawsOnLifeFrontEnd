@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Nav from "../Nav/Nav"
-import Box from "@mui/material/Box"
 
 const HeaderContainer = styled.header`
     text-align: center;
@@ -24,7 +23,7 @@ const Header = () => {
     return (
         <div>
             <HeaderContainer>
-                <HeaderText>PawsOn.Life</HeaderText>
+                <HeaderText className="title-font">PawsOn.Life</HeaderText>
                 <Nav />
             </HeaderContainer>
         </div>

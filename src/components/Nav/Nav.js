@@ -32,6 +32,8 @@ const FlexContainer = styled.div`
     justify-content: center;
     align-items: center;
     padding: 0 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
 `
 
 // https://mui.com/material-ui/react-app-bar/#app-bar-with-responsive-menu
@@ -89,13 +91,13 @@ const Nav = (props) => {
                     {/* everything in Box container will display unless mobile, then hamburger menu */}
                     <Box sx={{ flexGrow: 1, display: { s: "flex", md: "none" } }}>
                         <IconButton
-                            size="large"
+                            size="medium"
                             aria-label="site navigation"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenMenuNav}
                         >
-                            <MenuIcon />
+                            <MenuIcon sx={{fontSize: "1.3rem"}}/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
