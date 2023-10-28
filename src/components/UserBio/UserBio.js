@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { isAuthorized } from '../../services/auth';
+import UserPetSelect from "../UserPetSelect/UserPetSelect";
 
 const BioContainer = styled.div`
     display: flex;
@@ -67,6 +68,7 @@ const FancyBorder = styled.span`
 const UserBio = () => {
     const [validated, setValidated] = useState(false);
     const [userPet, setUserPet] = useState(null);
+    const [ddlPet, setDdlPet] = useState(null);
     useEffect(() => {
         async function checkValidation() {
             const valid = await isAuthorized();
@@ -89,18 +91,23 @@ const UserBio = () => {
                 const loadPet = await result.json();
                 console.log(loadPet[0].name);
                 setUserPet(loadPet[0]);
+                setDdlPet(loadPet[0].type);
             }
         }
         loadUserData();
     }, [setUserPet])
 
+    const handlePetChange = (event) => {
+        setDdlPet(event.target.value);
+    }
+
     const handleSubmit = async (event) => {
         const body = {
-            name: event.target.parentNode.children[1].value,
-            type: event.target.parentNode.children[4].value,
-            breed: event.target.parentNode.children[5].children[0].value,
-            age: parseInt(event.target.parentNode.children[6].children[0].value),
-            weight: parseFloat(event.target.parentNode.children[7].children[0].value),
+            name: event.target.parentNode.children[2].value,
+            type: ddlPet,
+            breed: event.target.parentNode.children[4].children[0].value,
+            age: parseInt(event.target.parentNode.children[5].children[0].value),
+            weight: parseFloat(event.target.parentNode.children[6].children[0].value),
         }
         console.log(event.target.parentNode, body)
         const result = await fetch('https://dev.pawson.life/pet', {
@@ -126,9 +133,9 @@ type: type,
     */
 
     return /*validated ? */<BioContainer>
+        <UserPetSelect setPet={handlePetChange} defPet={ddlPet}/>
         <Label>Pet Name</Label><InputField name="name" className="input-area" placeholder="Pet Name" defaultValue={userPet?.name} />
         <FancyBorder />
-        <Label>Pet Type</Label><InputField name="type" className="input-area" defaultValue={userPet?.type} />
         <Label>Breed: <InputField name="type" className="input-area" defaultValue={userPet?.breed} /></Label>
         <Label>Age: <InputField name="age" className="input-area" defaultValue={userPet?.age} type="Number" /></Label>
         <Label>Weight: <InputField name="weight" className="input-area" defaultValue={userPet?.weight} type="Number" /></Label>

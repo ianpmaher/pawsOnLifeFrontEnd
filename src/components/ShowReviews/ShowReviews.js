@@ -2,8 +2,9 @@ import styled from "styled-components";
 import ModalFun from "../ModalFun/ModalFun";
 import UserReviewForm from "../UserReviewForm/UserReviewForm";
 import { useEffect, useState } from "react";
+import CalcDogWater from "../CalcDogWater/CalcDogWater";
 
-const ShowReviews = ({id}) => {
+const ShowReviews = ({id, coordinates}) => {
     const [reviews, setReviews] = useState(null);
     useEffect(() => {
         async function loadReviews() {
@@ -35,7 +36,7 @@ const ShowReviews = ({id}) => {
         <ModalFun 
         title={"Plan a Hike!"}
         id={"plan"}
-        content={"Coming Soon!"}
+        content={<CalcDogWater latitude={coordinates.lat()} longitude={coordinates.lng()}/>}
         />
     </>)
 }

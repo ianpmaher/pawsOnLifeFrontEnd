@@ -72,10 +72,6 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
         {}
         <></>
       </GoogleMap>
-      <CalcDogWater
-        latitude={coordinates.lat()}
-        longitude={coordinates.lng()}
-      />
     </ContainerStyle>
   ) : (
     <></>

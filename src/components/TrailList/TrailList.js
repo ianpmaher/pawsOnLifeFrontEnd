@@ -50,7 +50,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
         {trails.length ? trails.map((result, index) => 
           <li key={index} >
             <span onClick={() => handleSelect(result)} onBlur={handleBlur} className="trail-detail">
-            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" style={ModalStyled} content={<ShowReviews id={result.place_id}/>}>More Info</ModalFun>}
+            {result.name}</span> {(modal===result.place_id) && <ModalFun id="more-info" title="More Info" style={ModalStyled} content={<ShowReviews id={result.place_id} coordinates={coordinates}/>}>More Info</ModalFun>}
           </li>
         ) : service && <li>No hiking trails found near this location.</li>}
       </UlTrail>

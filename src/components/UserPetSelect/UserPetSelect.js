@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import NativeSelect from '@mui/material/NativeSelect';
+import { useEffect, useState } from "react";
 /* using NativeSelect because the docs describe its mobile-friendliness */
 /* https://mui.com/material-ui/react-select/ */
 
@@ -14,10 +15,14 @@ const FlexContainer = styled.div`
     align-items: center;
 `
 
-const UserPetSelect = (props) => {
+const UserPetSelect = ({setPet, defPet}) => {
     // https://mui.com/material-ui/react-slider/
-
-    return (
+    const [showPet, setShowPet] = useState(null);
+    useEffect( () => {
+        setShowPet(defPet)
+        console.log(showPet)
+    },[setShowPet, defPet])
+    return showPet && (
         <FlexContainer>
             <Box sx={{minWidth: 150}}>
                 <Pets/>
@@ -26,14 +31,15 @@ const UserPetSelect = (props) => {
                         Canine or Feline?
                     </InputLabel>
                     <NativeSelect
-                        defaultValue={"Dog"}
+                        defaultValue={showPet}
+                        onChange={setPet}
                         inputProps={{
                             name: 'pet',
                             id: 'uncontrolled-native',
                         }}
                     >
-                        <option value={"Dog"}>Dog</option>
-                        <option value={"Cat"}>Cat</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Cat">Cat</option>
                     </NativeSelect>
                 </FormControl>
             </Box>

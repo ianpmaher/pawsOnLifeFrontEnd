@@ -1,4 +1,5 @@
 import { useState } from "react";
+import * as geo from '../../services/geo.js'
 
 const CalcDogWater = ({ latitude, longitude }) => {
   const [dogWeight, setDogWeight] = useState("");
@@ -9,6 +10,14 @@ const CalcDogWater = ({ latitude, longitude }) => {
   const dogWaterCalc = () => {
     let dogWater = 0;
     const weight = dogWeight;
+      const getLoc = (latitude && longitude) ? {lat: latitude, long: longitude} : geo.getLocation();
+      if(getLoc){
+        const getTemp = parseInt(geo.getWeather(getLoc).temperature);
+        setUserTemp(getTemp);
+      }else{
+        alert("Make error handling eventually")
+      }
+
     const temp = userTemp;
     const duration = userMins / 720;
 
