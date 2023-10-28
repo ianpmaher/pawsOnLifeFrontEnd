@@ -17,12 +17,12 @@ const HeaderText = styled.h1`
     margin: 0.5rem auto
 `;
 
-const Header = () => {
+const Header = ({loggedIn}) => {
     return (
         <div>
             <HeaderContainer>
                 <HeaderText>PawsOn.Life</HeaderText>
-                <Nav />
+                <Nav loggedIn={loggedIn} />
             </HeaderContainer>
         </div>
     );

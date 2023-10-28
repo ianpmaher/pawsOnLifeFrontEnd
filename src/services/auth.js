@@ -9,6 +9,7 @@ export async function isAuthorized(){
     if(result.status === 200){
         validated = true;
     }
+    if(!validated) await Logout();
     return validated;
 }
 
