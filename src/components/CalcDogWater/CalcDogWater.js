@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CalcDogWater = () => {
+const CalcDogWater = ({ latitude, longitude }) => {
   const [dogWeight, setDogWeight] = useState("");
   const [userTemp, setUserTemp] = useState("");
   const [result, setResult] = useState("");
@@ -48,6 +48,8 @@ const CalcDogWater = () => {
       />
       <button onClick={dogWaterCalc}>Submit</button>
       <p id="result">{result}</p>
+      <p>Lat: {latitude}</p>
+      <p>Lng: {longitude}</p>
     </div>
   );
 };
