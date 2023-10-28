@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as geo from '../../services/geo.js'
 
 const CalcDogWater = ({ latitude, longitude }) => {
