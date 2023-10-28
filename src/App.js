@@ -19,6 +19,7 @@ import { isAuthorized } from './services/auth';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import { teal } from '@mui/material/colors';
 
 /* darkmode/lightmode switch */
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
@@ -72,6 +73,9 @@ function App() {
                 palette: {
                     /* asks client browser if set preference for dark mode! mui <3 */
                     mode,
+                    primary: {
+                        main: teal,
+                    },
                 },
             }),
         [mode],
