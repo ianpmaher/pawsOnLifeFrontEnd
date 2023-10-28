@@ -1,11 +1,10 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Box from "@mui/material/Box";
 import Button from "../Button/Button";
 import Modal from "@mui/material/Modal";
 
 const ModalContainer = styled.div`
-    width: 30vw;
+    width: 50%;
     background: var(--blue-sapphire-color);
     border-radius: 20px;
     display: flex;
@@ -25,6 +24,7 @@ const Card = styled.div`
     justify-content: center;
     align-items: center;
     background-color: var(--blue-sapphire-color);
+    color: white;
     padding: 0.5rem;
     border-radius: 20px;
     min-height: fit-content;

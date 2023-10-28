@@ -36,7 +36,7 @@ const UlTrail = styled.ul`
 const TrailCard = ({title, url, content, review}) => {
     return (
         <Card>
-            <Paper>
+            <Paper sx={{padding: 1}}>
                 <UlTrail>
                     <h4>{title}</h4>
                     <ImgCard src={url} alt={title}/>
@@ -77,7 +77,7 @@ const TrailCard = ({title, url, content, review}) => {
 const CarouselEl = (props) => {
     return (
         <div style={{maxWidth:"40vw", minWidth:"30vw", margin:"0 auto"}}>
-            <Carousel showThumbs={false}>
+            <Carousel showThumbs={false} showStatus={false}>
             {props.trails?.map((trail, index) => (
                 <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} review={trail?.review} />
             ))}

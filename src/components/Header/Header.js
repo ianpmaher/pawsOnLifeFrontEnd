@@ -14,14 +14,14 @@ const HeaderContainer = styled.header`
 
 const HeaderText = styled.h1`
     letter-spacing: 3px;
-    margin: 0.5rem auto
+    margin: 0.5rem auto;
 `;
 
-const Header = () => {
+const Header = (props) => {
     return (
         <div>
             <HeaderContainer>
-                <Card sx={{ flexGrow: 1, borderRadius: 5, padding: 1 }}>
+                <Card sx={{ flexGrow: 1, borderRadius: 5, padding: 1, bgcolor: 'var(--blue-royal-color'}}>
                     <HeaderText>PawsOn.Life</HeaderText>
                 </Card>
                 <Nav />

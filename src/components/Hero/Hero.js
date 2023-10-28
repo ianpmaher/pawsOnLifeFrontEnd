@@ -48,7 +48,7 @@ const Hero = (props) => {
     return (
         <HeroContainer>
             <FlexContainer>
-                <Card sx={{borderRadius: 5}}>
+                <Card sx={{borderRadius: 5, }} >
                     <HeroText> Connecting humans and their animal companions with the natural world.</HeroText>
 
                 </Card>
