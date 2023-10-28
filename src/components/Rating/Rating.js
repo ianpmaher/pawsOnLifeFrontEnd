@@ -39,19 +39,19 @@ const Rating = ({ readOnly, initialValue, ratings }) => {
     }
     return (readOnly ? <RatingContainer>
         {rates.map((Rate, index) => {
-            let color = `#cc0`;
-            if (index >= value) color = `#000`;
+            let filled = true;
+            if (index >= value) filled = false;
             if (Rate !== null) console.log("This should never happen.")
-            return <DogBone key={index} $color={color} />
+            return <DogBone key={index} onClick={() => { setRating(index + 1) }} fillColor={filled ? "#F8FAF1" : "#000000"} />
         })}
         <Value>{value}</Value>
         {ratings && <Value>Based on {ratings} user ratings</Value>}
     </RatingContainer> : <RatingContainer>
         {rates.map((Rate, index) => {
-            let color = `#cc0`;
-            if (index >= value) color = `#000`;
+            let filled = true;
+            if (index >= value) filled = false;
             if (Rate !== null) console.log("This should never happen.")
-            return <DogBone key={index} onClick={() => { setRating(index + 1) }} $color={color} />
+            return <DogBone key={index} onClick={() => { setRating(index + 1) }} fillColor={filled ? "#F8FAF1" : "#000000"} />
         })}
         <Value>{value}</Value>
     </RatingContainer>
