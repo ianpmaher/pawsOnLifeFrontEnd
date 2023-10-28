@@ -9,12 +9,10 @@ import NearMeIcon from "@mui/icons-material/NearMe";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import PropTypes from "prop-types"
-import Slide from "@mui/material/Slide";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 /* styled components */
 import styled from "styled-components";
-import UserProfilePage from "../../pages/UserProfilePage/UserProfilePage";
 
 const FooterContainer = styled.div`
     position: fixed;
@@ -46,11 +44,11 @@ const FooterUserTrails = (props) => {
     // useState to define user's choice of which is clicked
     const [activeTab, setActiveTab] = useState(0);
     // useState to show component data
-    const [ activeView, setActiveView ] = useState(0)
+    // const [ activeView, setActiveView ] = useState(0)
 
     const handleChange = (event, newValue) => {
         setActiveTab(newValue);
-        setActiveView(newValue)
+        // setActiveView(newValue)
     };
 
 

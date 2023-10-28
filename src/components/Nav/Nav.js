@@ -57,7 +57,7 @@ const Nav = ({loggedIn}) => {
     const handleCloseMenuNav = () => {
         setAnchorElemNav(null);
     };
-    const setPages = () => {
+    const setPages = React.useCallback(() => {
             if (loggedIn) {
                 console.log("Nav should show logged in sections - logged in is", loggedIn)
                 pages[2] = {
@@ -71,7 +71,7 @@ const Nav = ({loggedIn}) => {
             } else {
                 console.log("Nav should show logged out sections - logged in is", loggedIn)
             }
-    }
+    },[pages])
     useEffect(() => {
         setPages();
     },

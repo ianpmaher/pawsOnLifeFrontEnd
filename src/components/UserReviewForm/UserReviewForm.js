@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import Button from "../Button/Button";
 import { isAuthorized } from '../../services/auth';
 import Rating from "../Rating/Rating";
 import DogBone from "../DogBone/DogBone";

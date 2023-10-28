@@ -36,7 +36,7 @@ const HomePage = (props) => {
     return (
         <HomePageContainer>
             <Hero />
-            <CarouselEl trails={trails} />              
+            <CarouselEl trails={trails} setTrails={setTrails} />              
             <Footer/>
         </HomePageContainer>
     )

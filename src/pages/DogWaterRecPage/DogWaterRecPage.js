@@ -30,7 +30,7 @@ const DogWaterRecPage = (props) => {
     return(
         <DogWaterRecPageContainer>
             <h1>dog water</h1>
-            <WaterRec trails={trails} userDog={userDog} />
+            <WaterRec trails={trails} userDog={userDog} setTrails={setTrails} setuserDog={setuserDog} />
         </DogWaterRecPageContainer>
 
     )

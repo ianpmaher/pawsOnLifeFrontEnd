@@ -2,7 +2,6 @@ import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails
 import { useState, useEffect } from "react";
 import MapView from "../../components/MapView/MapView";
 import SearchForm from "../../components/SearchForm/SearchForm";
-import SearchHikingTrails from "../../components/SearchHikingTrails/SearchHikingTrails";
 import TrailList from "../../components/TrailList/TrailList";
 import styled from "styled-components";
 import { useLoadScript } from "@react-google-maps/api";

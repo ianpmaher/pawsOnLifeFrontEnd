@@ -14,17 +14,6 @@ const RatingContainer = styled.div`
     }
 `
 
-const RateSpan = styled.span`
-${(props) => {
-        return css`
-    width: 20px;
-    height: 20px;
-    background-color: ${props.$color};
-    border-radius: 25%;
-    `
-    }}   
-`
-
 const Value = styled.span`
     background-color: var(--blue-sapphire-color);
 `
