@@ -42,7 +42,7 @@ const Rating = ({ readOnly, initialValue, ratings }) => {
             let color = `#cc0`;
             if (index >= value) color = `#000`;
             if (Rate !== null) console.log("This should never happen.")
-            return <RateSpan key={index} $color={color} />
+            return <DogBone key={index} $color={color} />
         })}
         <Value>{value}</Value>
         {ratings && <Value>Based on {ratings} user ratings</Value>}
@@ -51,7 +51,7 @@ const Rating = ({ readOnly, initialValue, ratings }) => {
             let color = `#cc0`;
             if (index >= value) color = `#000`;
             if (Rate !== null) console.log("This should never happen.")
-            return <RateSpan key={index} onClick={() => { setRating(index + 1) }} $color={color} />
+            return <DogBone key={index} onClick={() => { setRating(index + 1) }} $color={color} />
         })}
         <Value>{value}</Value>
     </RatingContainer>
