@@ -20,7 +20,6 @@ const UserPetSelect = ({setPet, defPet}) => {
     const [showPet, setShowPet] = useState(null);
     useEffect( () => {
         setShowPet(defPet)
-        console.log(showPet)
     },[setShowPet, defPet])
     return showPet && (
         <FlexContainer>

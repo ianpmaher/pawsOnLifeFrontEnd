@@ -18,8 +18,8 @@ export async function getLocation() {
 }
 
 export async function getWeather({lat, long}){
-    const wapi = await fetch(`https://api.weather.gov/points/${location.lat},${location.long}`)
-    forecast = (await wapi.json()).properties.forecast;
+    const wapi = await fetch(`https://api.weather.gov/points/${lat},${long}`)
+    const forecast = (await wapi.json()).properties.forecast;
     console.log(forecast);
     return forecast;
 }

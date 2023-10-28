@@ -1,7 +1,6 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useCallback } from "react";
 import { GoogleMap } from "@react-google-maps/api";
 import styled from "styled-components";
-import CalcDogWater from "../CalcDogWater/CalcDogWater";
 
 // Ian do styling things here
 const ContainerStyle = styled.div`
@@ -31,7 +30,7 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
   );
 
   const onUnload = useCallback(
-    function unLoad(map) {
+    function unLoad() {
       setMap(null);
     },
     [setMap]

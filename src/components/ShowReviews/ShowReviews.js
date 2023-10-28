@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import ModalFun from "../ModalFun/ModalFun";
 import UserReviewForm from "../UserReviewForm/UserReviewForm";
 import { useEffect, useState } from "react";

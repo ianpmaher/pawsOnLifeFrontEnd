@@ -5,7 +5,6 @@ import "./App.css";
 import "./variables.css"; /* Global CSS Variables */
 import { createTheme, ThemeProvider, useTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import HomePage from './pages/HomePage/HomePage';
 import Header from "./components/Header/Header"
 import LoginPage from "./pages/LoginPage/LoginPage"

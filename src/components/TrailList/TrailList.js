@@ -43,7 +43,7 @@ const TrailList = ({ setSelectedPlaceId, service, coordinates }) => {
         }
       });
     }
-  }, [service]);
+  }, [service, coordinates]);
   return (
     <div id="results">
       <UlTrail>

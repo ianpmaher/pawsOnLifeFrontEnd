@@ -132,7 +132,7 @@ type: type,
                 weight: parseFloat(weight),
     */
 
-    return /*validated ? */<BioContainer>
+    return validated ? <BioContainer>
         <UserPetSelect setPet={handlePetChange} defPet={ddlPet}/>
         <Label>Pet Name</Label><InputField name="name" className="input-area" placeholder="Pet Name" defaultValue={userPet?.name} />
         <FancyBorder />
@@ -142,9 +142,9 @@ type: type,
         <FancyBorder />
         <Button onClick={handleSubmit}>Save/Update</Button>
     </BioContainer>
-    // :
-    // <>You must be logged in to do this.
-    // </>
+    :
+    <>You must be logged in to do this.
+    </>
 }
 
 export default UserBio;
