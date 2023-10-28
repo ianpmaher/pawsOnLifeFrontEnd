@@ -19,23 +19,22 @@ const ReviewContainer = styled.div`
     position: relative;
 `;
 const InputField = styled.input`
-    height: 5vh;
-    margin: 0.25rem auto;
+    height: 2vh;
+    margin: 0 auto;
     min-width: 20vw;
     border-radius: 5px;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.55);
     overflow: hidden;
-    letter-spacing: 2px;
-    padding: 0.25rem;
+    letter-spacing: 1px;
+    padding: 0 0.25rem;
     transition: 0.9s all ease-in-out;
-
     &:focus {
         outline: none;
     }
 `;
 const Label = styled.label`
     height: 5vh;
-    margin: 0.25rem auto;
+    margin: 0.1rem auto;
     min-width: 20vw;
     border-radius: 5px;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.55);
