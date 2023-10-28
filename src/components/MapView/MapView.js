@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import { GoogleMap } from "@react-google-maps/api";
 import styled from "styled-components";
+import CalcDogWater from "../CalcDogWater/CalcDogWater";
 
 // Ian do styling things here
 const ContainerStyle = styled.div`
@@ -51,7 +52,8 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
         lat: coordinates.lat(),
         lng: coordinates.lng(),
       });
-      console.log(bounds);
+      console.log(coordinates.lat());
+      console.log(coordinates.lng());
       map.fitBounds(bounds);
       setMap(map);
       updateMap();
@@ -70,6 +72,10 @@ const MapView = ({ map, setMap, isLoaded, coordinates, setService }) => {
         {}
         <></>
       </GoogleMap>
+      <CalcDogWater
+        latitude={coordinates.lat()}
+        longitude={coordinates.lng()}
+      />
     </ContainerStyle>
   ) : (
     <></>
