@@ -34,11 +34,13 @@ const Social = styled.img`
 `
 
 const Footer = (props) => {
+    const aboutContent= <><p>PawsOn.Life is a collaborative effort to support healthy lifestyles, connecting our love of the great outdoors with our passion for web development. </p>
+    <p>We hope to foster a community of like-minded pet lovers. Register your account now to find, rate, and share your favorite pet-friendly hiking trails.</p></>
     return (
         <FooterContainer>
             <FlexList>
                 <li style={{textAlign: "center"}}>
-                    <ModalFun />
+                    <ModalFun id="about-us" title="About Us" content={aboutContent}/>
                 </li>
                 <li>
                     <a href="https://github.com/ianpmaher/pawsOnLifeFrontEnd" target="_blank" rel="noreferrer noopener">

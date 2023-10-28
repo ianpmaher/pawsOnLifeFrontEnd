@@ -11,6 +11,8 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin: 5vh auto;
+    padding: 2rem;
     @media (max-width: 768px) {
         margin: 0 auto;
         width: 100%;
@@ -24,6 +26,7 @@ const Card = styled.div`
     background-color: var(--blue-sapphire-color);
     padding: 1rem;
     border-radius: 20px;
+    min-height: fit-content;
     @media (max-width: 768px) {
         font-size: 0.8rem;
         height: min-content;
@@ -32,7 +35,7 @@ const Card = styled.div`
     }
 `
 
-const ModalFun = () => {
+const ModalFun = ({title, id, content}) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -40,18 +43,15 @@ const ModalFun = () => {
     return(
         <div>
             {/* TODO aria label */}
-            <Button onClick={handleOpen} style={{textAlign: "center", minWidth: "fit-content"}}>About Us</Button>
+            <Button onClick={handleOpen} style={{fontSize: "1rem", textAlign: "center", minWidth: "fit-content"}}>{title}</Button>
             <Modal
                 open={open}
                 onClose={handleClose}
-                aria-labelledby="about-us"
-                aria-describedby="about-us"
+                aria-labelledby={id}
+                aria-describedby={id}
             >   
                 <ModalContainer>
-                    <Card id="about-us">
-                        PawsOn.Life is a collaborative effort to support healthy lifestyles, connecting our love of the great outdoors with our passion for web development. 
-                        We hope to foster a community of like-minded pet lovers. Register your account now to find, rate, and share your favorite pet-friendly hiking trails.
-                    </Card>
+                    <Card id={id}>{content}</Card>
                 </ModalContainer>
 
             </Modal>

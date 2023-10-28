@@ -18,7 +18,10 @@ const HomePageContainer = styled.div`
     }
     @media (max-width: 500px) {
         gap: 0.5rem;
-        
+        padding: 0;
+    }
+    @media (max-width: 399px) {
+        padding: 0rem;
     }
 `
 
