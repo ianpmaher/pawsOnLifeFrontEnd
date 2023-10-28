@@ -55,7 +55,7 @@ const UserImage = styled.img`
 `;
 
 
-const LoginForm = ({validate}) => {
+const LoginForm = ({validate, setLoggedIn}) => {
     const [username, setUsername] = useState(localStorage.getItem("username") || null);
 
     const handleLogin = async (event) => {
@@ -90,9 +90,10 @@ const LoginForm = ({validate}) => {
             } else {
                 console.log("User is not logged in");
             }
+            setLoggedIn(validated)
         }
         checkValidation();
-    }, [username, validate])
+    }, [username, validate, setLoggedIn])
 
     return (
         <>

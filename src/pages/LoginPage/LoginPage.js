@@ -8,11 +8,11 @@ const LoginPageContainer = styled.div`
     align-items: center;
 `
 
-const LoginPage = (props) => {
+const LoginPage = ({setLoggedIn}) => {
     //
     return (
         <LoginPageContainer>
-            <LoginForm validate={isAuthorized}/>
+            <LoginForm validate={isAuthorized} setLoggedIn={setLoggedIn}/>
         </LoginPageContainer>
     )
 }
