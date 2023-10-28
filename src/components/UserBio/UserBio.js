@@ -34,7 +34,7 @@ const InputField = styled.input`
     }
 `;
 const Label = styled.label`
-    height: 5vh;
+    height: 6vh;
     margin: 0.25rem auto;
     min-width: 20vw;
     border-radius: 5px;

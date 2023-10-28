@@ -33,7 +33,7 @@ const InputField = styled.input`
     }
 `;
 const Label = styled.label`
-    height: 5vh;
+    height: 6vh;
     margin: 0.1rem auto;
     min-width: 20vw;
     border-radius: 5px;
@@ -63,6 +63,10 @@ const FancyBorder = styled.span`
         transition: 0.4s;
     }
 `;
+
+const ratingStyle = {
+    height: "4vh",
+}
 
 const UserReviewForm = ({ isForm, review }) => {
     const [validated, setValidated] = useState(false);
