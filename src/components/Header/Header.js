@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Nav from "../Nav/Nav"
-import Box from "@mui/material/Box"
+import Nav from "../Nav/Nav";
+import Card from "@mui/material/Card";
 
 const HeaderContainer = styled.header`
     text-align: center;
@@ -21,7 +21,9 @@ const Header = () => {
     return (
         <div>
             <HeaderContainer>
-                <HeaderText>PawsOn.Life</HeaderText>
+                <Card sx={{ flexGrow: 1, borderRadius: 5, padding: 1 }}>
+                    <HeaderText>PawsOn.Life</HeaderText>
+                </Card>
                 <Nav />
             </HeaderContainer>
         </div>

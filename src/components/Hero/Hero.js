@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Card from "@mui/material/Card";
 
 // https://www.freepik.com/free-vector/faceless-happy-woman-walking-with-dog-park_9649736.htm#page=2&query=dog%20hiking&position=4&from_view=keyword&track=ais" Image by pch.vector
 
@@ -16,15 +17,6 @@ const HeroContainer = styled.div`
         gap: 0.5rem;
     }
 `;
-const DivContainer = styled.div`
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 20rem;
-    min-height: 8rem;
-    background: var(--blue-deep-color);
-    border-radius: 20px;
-`
 const HeroText = styled.p`
     font-size: 1.5rem;
     font-weight: 500;
@@ -56,10 +48,10 @@ const Hero = (props) => {
     return (
         <HeroContainer>
             <FlexContainer>
-                <DivContainer>
+                <Card sx={{borderRadius: 5}}>
                     <HeroText> Connecting humans and their animal companions with the natural world.</HeroText>
 
-                </DivContainer>
+                </Card>
                 </FlexContainer>
             <ImgCard src="https://i.imgur.com/9PMNlbO.png" alt="doggy" />
         </HeroContainer>
