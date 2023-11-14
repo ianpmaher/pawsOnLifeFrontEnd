@@ -36,6 +36,10 @@ On our frontend we utilize React and React DOM for our user interface to ensure 
 * Create a Reviews section where users can leave comments about the trail and post pictures of the hike.
 * #tags – allow users to tag keywords on trails they have hike to be displaying with the trail info.
 
+## Screenshots ##
+<img width="1511" alt="pawsOnLife" src="https://github.com/ianpmaher/pawsOnLifeFrontEnd/assets/120536234/28fd01fc-7a91-420c-8b23-1c3466654ecd">
+
+
 ## Helpful Links ##
 
 Live Site        | www.pawson.life
