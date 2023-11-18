@@ -10,7 +10,7 @@ const MapsTrailsPageContainer = styled.div`
   display: flex;
   flex-flow: column wrap;
   gap: 0.5rem;
-  background: var(--background-container-gradient);
+  background: var(--green-pretty-color);
   border-radius: 20px;
   padding: 0.5rem 5rem 10rem 5rem;
   max-width: 70vw;

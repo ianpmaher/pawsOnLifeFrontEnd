@@ -18,7 +18,7 @@ import { isAuthorized } from './services/auth';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
-import Card from "@mui/material/Card"
+import Card from "@mui/material/Card";
 
 /* darkmode/lightmode switch */
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
@@ -46,14 +46,15 @@ function App() {
         const isDark = theme.palette.mode === 'dark';
 
         return (
-            <Card sx={{borderRadius: 5}}>
+            <span>
                 <IconButton
+                    sx={{ display: 'inline' }}
                     checked={isDark}
                     onClick={colorMode.toggleColorMode}
                 >
                     {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
                 </IconButton>
-            </Card>
+            </span>
         );
     };
 
@@ -86,8 +87,16 @@ function App() {
             <ThemeProvider theme={theme}>
                 <CssBaseline enableColorScheme />
                 <div className="App" theme={theme}>
-                    <ToggleColorMode />
-                    <Header theme={theme} loggedIn={loggedIn} />
+                    <Card sx={{display: "flex", justifyContent: "center", margin: "0 auto", p: 0, width: "50vw", background: "var(--background-gradient)"}}>
+                        <Header theme={theme} loggedIn={loggedIn} />
+                        
+                        {/* <ToggleColorMode /> */}
+                    </Card>
+                    <div style={{alignSelf: "center", position: "absolute", right: 0, top: 0}}>
+                            <ToggleColorMode />
+                    </div>
+                    {/* <ToggleColorMode /> */}
+                    {/* <Header theme={theme} loggedIn={loggedIn} /> */}
                     <Routes>
                         <Route path="/" element={<HomePage />} />
                         <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} />} />

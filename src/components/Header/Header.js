@@ -24,7 +24,7 @@ const Header = ({ loggedIn }) => {
     return (
         <div>
             <HeaderContainer>
-                <Card>
+                <Card sx={{bgcolor: "inherit", p: "0 1rem"}}>
                     <HeaderText>PawsOn.Life</HeaderText>
                 </Card>
                 <Nav loggedIn={loggedIn} />

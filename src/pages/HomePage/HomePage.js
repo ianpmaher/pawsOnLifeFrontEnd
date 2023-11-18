@@ -3,15 +3,15 @@ import styled from "styled-components";
 import CarouselEl from "../../components/Carousel/Carousel";
 import Footer from "../../components/Footer/Footer";
 import Hero from "../../components/Hero/Hero";
+import Paper from "@mui/material/Paper";
 
 const HomePageContainer = styled.div`
     display: flex;
     flex-flow: column wrap;
     gap: 1.5rem;
-    background: var(--background-gradient);
     border-radius: 20px;
     padding: 1rem 5rem 10rem 5rem;
-    width: 80vw;
+    width: 70vw;
     margin: 0 auto;
     @media (max-width: 768px) {
         padding: 1rem 2rem 5rem 2rem;
@@ -35,9 +35,11 @@ const HomePage = (props) => {
 
     return (
         <HomePageContainer>
-            <Hero />
-            <CarouselEl trails={trails} setTrails={setTrails} />              
-            <Footer/>
+            <Paper square={false} sx={{backgroundColor: "var(--green-pretty-color)"}}>
+                <Hero />
+                <CarouselEl trails={trails} setTrails={setTrails} />              
+                <Footer/>
+            </Paper>
         </HomePageContainer>
     )
 }
