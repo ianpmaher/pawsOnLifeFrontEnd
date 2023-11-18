@@ -22,16 +22,16 @@ const MapsTrailsPageContainer = styled.div`
 const FlexContainer = styled.div`
   display: flex;
   flex-flow: row nowrap;
-  gap: 4rem;
+  gap: 2rem;
   justify-content: center;
   @media (max-width: 850px) {
-    flex-flow: column wrap;
+    flex-flow: row nowrap;
     gap: 1rem;
   }
 `;
 const MapsTrailsTitleText = styled.h2`
   @media (max-width: 768px) {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
 `;
 
