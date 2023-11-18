@@ -21,9 +21,13 @@ const pages = [
         title: "Home",
         destination: "/",
     },
+    // {
+    //     title: "Maps & Trails",
+    //     destination: "/trails",
+    // },
     {
-        title: "Maps & Trails",
-        destination: "/trails",
+        title: "About",
+        destination: "/about",
     },
     {
         title: "Log In",

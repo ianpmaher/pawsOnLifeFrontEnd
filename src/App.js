@@ -98,9 +98,10 @@ function App() {
                     {/* <ToggleColorMode /> */}
                     {/* <Header theme={theme} loggedIn={loggedIn} /> */}
                     <Routes>
-                        <Route path="/" element={<HomePage />} />
+                        <Route path="/" element={<MapsTrailsPage />} />
                         <Route path="/login" element={<LoginPage setLoggedIn={setLoggedIn} />} />
                         <Route path="/trails" element={<MapsTrailsPage />} />
+                        <Route path="/about" element={<HomePage />} />
                         <Route path="/profile" element={<UserProfilePage />} />
                         <Route path="/register" element={<RegistrationPage />} />
                         <Route path="/water" element={<DogWaterRecPage />} />

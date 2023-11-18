@@ -8,7 +8,7 @@ const HeaderContainer = styled.header`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem auto auto auto;
+    margin: 0.5rem auto 1rem auto;
     position: sticky;
 `;
 
@@ -24,7 +24,7 @@ const Header = ({ loggedIn }) => {
     return (
         <div>
             <HeaderContainer>
-                <Card sx={{bgcolor: "inherit", p: "0 1rem"}}>
+                <Card sx={{p: "0 1rem"}}>
                     <HeaderText>PawsOn.Life</HeaderText>
                 </Card>
                 <Nav loggedIn={loggedIn} />

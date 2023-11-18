@@ -11,7 +11,7 @@ const HomePageContainer = styled.div`
     gap: 1.5rem;
     border-radius: 20px;
     padding: 1rem 5rem 10rem 5rem;
-    width: 70vw;
+    width: 100vw;
     margin: 0 auto;
     @media (max-width: 768px) {
         padding: 1rem 2rem 5rem 2rem;
@@ -35,7 +35,7 @@ const HomePage = (props) => {
 
     return (
         <HomePageContainer>
-            <Paper square={false} sx={{backgroundColor: "var(--green-pretty-color)"}}>
+            <Paper square={false} sx={{backgroundColor: "var(--green-pretty-color)", borderRadius: "20px"}}>
                 <Hero />
                 <CarouselEl trails={trails} setTrails={setTrails} />              
                 <Footer/>
