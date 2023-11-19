@@ -1,15 +1,29 @@
+/* experiment in MIX BLEND MODE */
 li {
-    font-size: 1.0rem;
+    font-size: 0.9rem;
+    text-align: left;
     cursor: pointer;
     transition: 0.3s all ease-out;
+    background-color: rgba(33, 99, 180, 0.8);
 }
-li.trail-detail:hover{
+
+.trail-detail {
+    padding: 0.1rem;
+    transition: 0.3s all ease-out;
+}
+.trail-detail:hover{
     /* background-color: var(--red-ruby-color); */
     background-color: var(--yellow-gamboge-color);
     color: black;
 }
-li.trail-detail:active{
+.trail-detail:active{
     scale: 125%;
+    background-color: var(--yellow-gamboge-color);
+}
+/* div */
+#results {
+    padding: 0.5rem;
+    border-radius: 20px;
 }
 @media screen and (max-width: 768px) {
     li {

@@ -36,7 +36,7 @@
     /* --background-gradient: linear-gradient(110deg, var(--orange-alloy-color) 0%, var(--orange-rust-color) 33%, var(--champagne-color) 100%); */
     
     /* --background-gradient: linear-gradient(circle, var(--green-olive-color) 0%, var(--green-nice-color) 33%, var(--green-bright-color) 66%, var(--green-pretty-color)); */
-    --background-gradient: radial-gradient(circle 10rem at 91% 20%, white, var(--yellow-sun-color) 50%, #a0d2db 1%, #386e9d);
+    --background-gradient: radial-gradient(circle 4rem at 80% 30%, white, var(--yellow-sun-color) 50%, #a0d2db 1%, #386e9d);
 
     --background-container-gradient: linear-gradient(180deg, var(--blue-navy-color) 0%, var(--green-nice-color) 33%, var(--green-forest-color) 66%, var(--green-pretty-color) 100%);
 
@@ -47,4 +47,5 @@
 
     --main-background-gradient: linear-gradient(140deg, var(--green-pretty-color) 0%, var(--green-forest-color) 50%, var(--green-bright-color) 100%);
 
+    --orange-gradient: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
 }

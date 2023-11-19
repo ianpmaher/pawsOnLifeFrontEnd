@@ -9,10 +9,9 @@ const LoginContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin: 1rem; auto;
+    margin: 1rem auto;
     padding: 2rem;
     border-radius: 20px;
-    max-width: 50;
     height: 100%;
     gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);

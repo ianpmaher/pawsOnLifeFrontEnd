@@ -2,15 +2,13 @@ import styled from "styled-components";
 import ModalFun from "../ModalFun/ModalFun";
 
 const FooterContainer = styled.div`
-    margin: 1rem auto auto auto;
+    margin: 15rem auto auto auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    top: 1;
+    @media (max-width: 768px) {
+        margin: 5rem auto auto auto;
+    }
 `;
 
 const FlexList = styled.ul`
@@ -39,10 +37,10 @@ const Footer = (props) => {
     return (
         <FooterContainer>
             <FlexList>
-                <li style={{textAlign: "center"}}>
-                    <ModalFun id="about-us" title="About Us" content={aboutContent}/>
+                <li style={{textAlign: "center", background: "transparent"}}>
+                    <ModalFun id="about-us" title="About Us" content={aboutContent} />
                 </li>
-                <li>
+                <li style={{background: "transparent"}}>
                     <a href="https://github.com/ianpmaher/pawsOnLifeFrontEnd" target="_blank" rel="noreferrer noopener">
                         <Social
                             src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
@@ -50,7 +48,7 @@ const Footer = (props) => {
                         />
                     </a>
                 </li>
-                <li>
+                <li style={{background: "transparent"}}>
                     <a href="https://github.com/ianpmaher/pawsOnLifeBackEnd" target="_blank" rel="noreferrer noopener">
                         <Social
                             src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"

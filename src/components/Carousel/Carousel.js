@@ -19,7 +19,7 @@ const DivCard = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem auto;
     border-radius: 20px;
     margin: 0.5rem auto;
 `
@@ -74,7 +74,7 @@ const TrailCard = ({title, url, content, review}) => {
 
 const CarouselEl = (props) => {
     return (
-        <div style={{maxWidth:"40vw", minWidth:"30vw", margin:"0 auto"}}>
+        <div style={{maxWidth:"30vw", minWidth:"30vw", margin:"0 auto"}}>
             <Carousel showThumbs={false} showStatus={false}>
             {props.trails?.map((trail, index) => (
                 <TrailCard key={index} title={trail?.title} url={trail?.url} content={trail?.content} review={trail?.review} />

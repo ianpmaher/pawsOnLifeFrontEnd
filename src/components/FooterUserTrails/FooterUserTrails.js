@@ -56,45 +56,55 @@ const FooterUserTrails = (props) => {
     // update 10/19/23: mui Tab/Tabs instead of BottomNavigation
     return (
         <FooterContainer>
+            {/* right now, the content inside each TabPabel displays as a box above the bottom menu bar */}
             <TabPanel value={activeTab} index={0}>
                 {/* ideally customize to display users' data */}
+                {/* <Box> */}
+                    {/* <HistoryIcon/> */}
+                {/* </Box> */}
             </TabPanel>
             <TabPanel value={activeTab} index={1}>
                 {/* ideally customize to display users' data */}
+                <Box>
+                    <FavoriteIcon/>
+                </Box>
             </TabPanel>
             <TabPanel value={activeTab} index={2}>
                 {/* ideally customize to display users' data */}
+                <Box>
+                    <NearMeIcon/>
+                </Box>
             </TabPanel>
             <TabPanel value={activeTab} index={3}>
                 {/* <UserProfilePage/> */}
             </TabPanel>
-            <AppBar position="static" sx={{ flexFlow: "row wrap", justifyContent: "center", borderRadius: "20px" }}>
+            <AppBar position="static" sx={{ flexFlow: "row wrap", justifyContent: "center", borderRadius: "20px", backgroundColor: "black", maxHeight: { xs: "4rem", md: "4rem"}}}>
                 <Tabs
                     value={activeTab}
                     onChange={handleChange}
                     aria-label="icon label tabs"
-                    sx={{ backgroundColor: "inherit", borderRadius: "20px" }}
+                    sx={{ backgroundColor: "rgba(255,255,255,0.3)", borderRadius: "20px", color: "white" }}
                 >
                     {/* added all the sx fontSize parameters to force icons to be responsive */}
                     <Tab
-                        icon={<HistoryIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<HistoryIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="History"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<FavoriteIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<FavoriteIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Favorites"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<NearMeIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<NearMeIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Nearby"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<ManageAccountsIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<ManageAccountsIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Profile"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 } }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                         type="a"
                         href="/profile"
                     />

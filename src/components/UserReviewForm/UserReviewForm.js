@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
-import { isAuthorized } from '../../services/auth';
+import { isAuthorized } from "../../services/auth";
 import Rating from "../Rating/Rating";
 import DogBone from "../DogBone/DogBone";
 
@@ -9,24 +9,25 @@ const ReviewContainer = styled.div`
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    margin: 1rem; auto;
-    padding: 2rem;
+    margin: 0 auto;
+    padding: 0;
     border-radius: 20px;
-    max-width: 50;
     height: 100%;
-    gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
     position: relative;
+    @media (max-width: 768px) {
+        flex-flow: row nowrap;
+        max-width: 100%;
+        padding: 0.25rem;
+    }
 `;
 const InputField = styled.input`
-    height: 2vh;
+    min-height: 2vh;
     margin: 0 auto;
     min-width: 20vw;
     border-radius: 5px;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.55);
     overflow: hidden;
-    letter-spacing: 1px;
-    padding: 0 0.25rem;
     transition: 0.9s all ease-in-out;
     &:focus {
         outline: none;
@@ -35,11 +36,11 @@ const InputField = styled.input`
 const Label = styled.label`
     height: 6vh;
     margin: 0.1rem auto;
-    min-width: 20vw;
+    min-width: 25vw;
     border-radius: 5px;
     box-shadow: 0 0 2rem rgba(0, 0, 0, 0.55);
     overflow: hidden;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     padding: 0.25rem;
     transition: 0.9s all ease-in-out;
 
@@ -64,6 +65,15 @@ const FancyBorder = styled.span`
     }
 `;
 
+const LabelStyle = {
+    fontSize: "1rem",
+    color: "white",
+    margin: "0 auto",
+    padding: "0 auto",
+    height: "4vh",
+    display: "inline",
+};
+
 const UserReviewForm = ({ isForm, review }) => {
     const [validated, setValidated] = useState(false);
     useEffect(() => {
@@ -72,33 +82,84 @@ const UserReviewForm = ({ isForm, review }) => {
             setValidated(valid);
         }
         checkValidation();
-    })
+    });
 
-    return (!isForm && review)? <ReviewContainer>
-        <Label>Dog Friendly</Label><InputField readOnly={true} name="dogsAllowed" type="checkbox" className="input-area" value={review.dogsAllowed ? true : false}/>
-        <Label>Cat Friendly</Label><InputField readOnly={true} name="catsAllowed" type="checkbox" className="input-area" value={review.catsAllowed ? true : false}/>
-        <FancyBorder />
-        <Label>Accessibility: <Rating readOnly={true} initialValue={review.accessibility}/></Label>
-        <Label>Difficulty: <Rating readOnly={true} ratings={review.ratings} initialValue={review.difficulty}/></Label>
-        <Label>Restrooms: <Rating readOnly={true} ratings={review.ratings} initialValue={review.restrooms}/></Label>
-        <Label>Water Fountains: <Rating readOnly={true} ratings={review.ratings} initialValue={review.waterFountains}/></Label>
-        <FancyBorder />
-    </ReviewContainer>
-        :
-        validated ?
-            <ReviewContainer>
-                <Label>Dog Friendly</Label><InputField name="dogsAllowed" type="checkbox" className="input-area" />
-                <Label>Cat Friendly</Label><InputField name="catsAllowed" type="checkbox" className="input-area" />
-                <FancyBorder />
-                <Label>Accessibility: <Rating /></Label>
-                <Label>Difficulty: <Rating /></Label>
-                <Label>Restrooms: <Rating /></Label>
-                <Label>Water Fountains: <Rating url={DogBone}/></Label>
-                <FancyBorder />
-            </ReviewContainer>
-            :
-            <>You must be logged in to do this.
-            </>
-}
+    return !isForm && review ? (
+        <ReviewContainer>
+            <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center" }}>
+                <Label style={LabelStyle}>Dog Friendly</Label>
+                <InputField
+                    style={{
+                        height: "2vh",
+                        padding: "0",
+                        background: "transparent",
+                        border: "none",
+                        boxShadow: "none",
+                    }}
+                    readOnly={true}
+                    name="dogsAllowed"
+                    type="checkbox"
+                    className="input-area"
+                    value={review.dogsAllowed ? true : false}
+                />
+            </div>
+            <div style={{ display: "flex", flexFlow: "row wrap", alignItems: "center" }}>
+                <Label style={LabelStyle}>Cat Friendly</Label>
+                <InputField
+                    style={{
+                        height: "2vh",
+                        padding: "0",
+                        background: "transparent",
+                        border: "none",
+                        boxShadow: "none",
+                    }}
+                    readOnly={true}
+                    name="catsAllowed"
+                    type="checkbox"
+                    className="input-area"
+                    value={review.catsAllowed ? true : false}
+                />
+            </div>
+            <FancyBorder />
+            <Label>
+                Accessibility: <Rating readOnly={true} initialValue={review.accessibility} />
+            </Label>
+            <Label>
+                Difficulty: <Rating readOnly={true} ratings={review.ratings} initialValue={review.difficulty} />
+            </Label>
+            <Label>
+                Restrooms: <Rating readOnly={true} ratings={review.ratings} initialValue={review.restrooms} />
+            </Label>
+            <Label>
+                Water Fountains:{" "}
+                <Rating readOnly={true} ratings={review.ratings} initialValue={review.waterFountains} />
+            </Label>
+            <FancyBorder />
+        </ReviewContainer>
+    ) : validated ? (
+        <ReviewContainer>
+            <Label style={LabelStyle}>Dog Friendly</Label>
+            <InputField name="dogsAllowed" type="checkbox" className="input-area" />
+            <Label>Cat Friendly</Label>
+            <InputField name="catsAllowed" type="checkbox" className="input-area" />
+            <FancyBorder />
+            <Label>
+                Accessibility: <Rating />
+            </Label>
+            <Label>
+                Difficulty: <Rating />
+            </Label>
+            <Label>
+                Restrooms: <Rating />
+            </Label>
+            <Label>
+                Water Fountains: <Rating url={DogBone} />
+            </Label>
+            <FancyBorder />
+        </ReviewContainer>
+    ) : (
+        <>You must be logged in to do this.</>
+    );
+};
 
 export default UserReviewForm;

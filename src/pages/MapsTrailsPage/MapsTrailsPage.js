@@ -8,30 +8,43 @@ import { useLoadScript } from "@react-google-maps/api";
 
 const MapsTrailsPageContainer = styled.div`
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column nowrap;
   gap: 0.5rem;
-  background: var(--background-container-gradient);
+  background-image: url("https://images.unsplash.com/photo-1526510335242-248dc3765086?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-position: bottom;
   border-radius: 20px;
-  padding: 0.5rem 5rem 10rem 5rem;
-  max-width: 70vw;
+  padding: 1rem 5rem 10rem 5rem;
+  max-width: 80vw;
   margin: 0 auto;
   @media (max-width: 768px) {
-    padding: 1rem 2rem 5rem 2rem;
+    padding: 1rem 3rem 5rem 3rem;
+    max-width: 80vw;
+    background-color: var(--green-pretty-color);
+    background-image: none;
+    padding: 0rem 4rem;
   }
 `;
 const FlexContainer = styled.div`
   display: flex;
-  flex-flow: row nowrap;
-  gap: 4rem;
+  flex-flow: row wrap;
+  gap: 2rem;
   justify-content: center;
   @media (max-width: 850px) {
-    flex-flow: column wrap;
-    gap: 1rem;
+    flex-flow: row nowrap;
+    gap: 1.25rem;
   }
 `;
 const MapsTrailsTitleText = styled.h2`
-  @media (max-width: 768px) {
-    font-size: 1.1rem;
+  background: #386e9d;
+  border-radius: 20px;
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0.5rem;
+    @media (max-width: 768px) {
+        font-size: 0.8rem;
+        max-width: 100%;
+        padding: 0.25rem;
   }
 `;
 

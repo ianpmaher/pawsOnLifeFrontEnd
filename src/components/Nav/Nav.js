@@ -21,9 +21,13 @@ const pages = [
         title: "Home",
         destination: "/",
     },
+    // {
+    //     title: "Maps & Trails",
+    //     destination: "/trails",
+    // },
     {
-        title: "Maps & Trails",
-        destination: "/trails",
+        title: "About",
+        destination: "/about",
     },
     {
         title: "Log In",
@@ -137,7 +141,7 @@ const Nav = ({loggedIn}) => {
                     >
                         PAWS ON LIFE
                     </Link> */}
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
                         {pages.map((page) => (
                             <Link noWrap component="a" to={page.destination} href={page.destination}
                                 key={page.title}
