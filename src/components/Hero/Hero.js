@@ -23,9 +23,11 @@ const HeroContainer = styled.div`
 `;
 
 const HeroText = styled.p`
-    font-size: 1.15rem;
+    font-size: 1.05rem;
     font-family: "Young Serif", serif;
     text-align: center;
+    padding: 0 auto;
+    margin: 0 auto;
     @media (max-width: 768px) {
         font-size: 0.8rem;
     }
@@ -39,7 +41,7 @@ const Hero = (props) => {
         <HeroContainer>
             <Card sx={{maxWidth: 345}}>
                 <CardMedia
-                    sx={{ height: 200 }}
+                    sx={{ height: {xs: 230, md: 250} }}
                     image="https://i.imgur.com/9PMNlbO.png"
                     title="Dog Hiking"
                     component={"img"}

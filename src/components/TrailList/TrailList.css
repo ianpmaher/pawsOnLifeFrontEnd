@@ -3,6 +3,7 @@ li {
     text-align: left;
     cursor: pointer;
     transition: 0.3s all ease-out;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 .trail-detail:hover{
     /* background-color: var(--red-ruby-color); */
@@ -11,6 +12,12 @@ li {
 }
 .trail-detail:active{
     scale: 125%;
+    background-color: var(--yellow-gamboge-color);
+}
+/* div */
+#results {
+    padding: 0.5rem;
+    border-radius: 20px;
 }
 @media screen and (max-width: 768px) {
     li {

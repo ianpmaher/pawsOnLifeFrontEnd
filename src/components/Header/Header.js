@@ -8,12 +8,14 @@ const HeaderContainer = styled.header`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 0.5rem auto 1rem auto;
+    margin: 0.25rem auto;
+    gap: 0.35rem;
     position: sticky;
 `;
 
 const HeaderText = styled.h1`
-    letter-spacing: 2px;
+    letter-spacing: 1px;
+    margin: 0 auto;
     @media (max-width: 768px) {
         letter-spacing: 0;
         font-size: 1.3rem;
@@ -24,7 +26,7 @@ const Header = ({ loggedIn }) => {
     return (
         <div>
             <HeaderContainer>
-                <Card sx={{p: "0 1rem"}}>
+                <Card sx={{p: "0rem 0.5rem"}}>
                     <HeaderText>PawsOn.Life</HeaderText>
                 </Card>
                 <Nav loggedIn={loggedIn} />

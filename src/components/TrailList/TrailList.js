@@ -4,7 +4,7 @@ import "./TrailList.css";
 import ModalFun from '../ModalFun/ModalFun';
 import ShowReviews from "../ShowReviews/ShowReviews";
 const UlTrail = styled.ul`
-  list-style-type: disc;
+  list-style-type: none;
   padding: 0;
   margin: 0 auto;
 `;

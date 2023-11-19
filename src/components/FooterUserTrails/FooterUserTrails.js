@@ -78,7 +78,7 @@ const FooterUserTrails = (props) => {
             <TabPanel value={activeTab} index={3}>
                 {/* <UserProfilePage/> */}
             </TabPanel>
-            <AppBar position="static" sx={{ flexFlow: "row wrap", justifyContent: "center", borderRadius: "20px", backgroundColor: "black"}}>
+            <AppBar position="static" sx={{ flexFlow: "row wrap", justifyContent: "center", borderRadius: "20px", backgroundColor: "black", maxHeight: { xs: "4rem", md: "4rem"}}}>
                 <Tabs
                     value={activeTab}
                     onChange={handleChange}
@@ -87,24 +87,24 @@ const FooterUserTrails = (props) => {
                 >
                     {/* added all the sx fontSize parameters to force icons to be responsive */}
                     <Tab
-                        icon={<HistoryIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<HistoryIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="History"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }, color: "white" }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<FavoriteIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<FavoriteIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Favorites"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }, color: "white" }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<NearMeIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<NearMeIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Nearby"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }, color: "white" }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                     />
                     <Tab
-                        icon={<ManageAccountsIcon sx={{ fontSize: { xs: 18, sm: 20, md: 20, lg: 20 } }} />}
+                        icon={<ManageAccountsIcon sx={{ fontSize: { xs: 16, sm: 18, md: 20, lg: 20 } }} />}
                         label="Profile"
-                        sx={{ fontSize: { xs: 10, sm: 11, md: 11, lg: 12 }, color: "white" }}
+                        sx={{ fontSize: { xs: 9, sm: 11, md: 11, lg: 12 }, color: "white" }}
                         type="a"
                         href="/profile"
                     />
