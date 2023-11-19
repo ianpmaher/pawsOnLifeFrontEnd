@@ -17,6 +17,7 @@ const HomePageContainer = styled.div`
     background-clip: border-box;
     border-radius: 20px;  
     @media (max-width: 768px) {
+        max-width: 50vw;
         padding: 1rem 2rem 5rem 2rem;
         background-color: var(--green-pretty-color);
         background-image: none;
