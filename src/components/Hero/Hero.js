@@ -39,10 +39,21 @@ const HeroText = styled.p`
 const Hero = (props) => {
     return (
         <HeroContainer>
-            <Card sx={{maxWidth: 345}}>
+            <Card sx={{maxWidth: 230, borderRadius: 5}}>
                 <CardMedia
                     sx={{ height: {xs: 300, md: 400} }}
                     image="/doggo-cropped.png"
+                    title="Dog Hiking"
+                    component="img"
+                />
+                <CardContent>
+                    <HeroText>Connecting humans and their animal companions with the natural world</HeroText>
+                </CardContent>
+            </Card>
+            <Card sx={{maxWidth: 230, borderRadius: 5}}>
+                <CardMedia
+                    sx={{ height: {xs: 300, md: 400} }}
+                    image="/doggo-hiking-phone.png"
                     title="Dog Hiking"
                     component="img"
                 />

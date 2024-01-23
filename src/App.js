@@ -86,7 +86,7 @@ function App() {
         <ColorModeContext.Provider value={colorMode}>
             <ThemeProvider theme={theme}>
                 <CssBaseline enableColorScheme />
-                <div className="App" theme={theme}>
+                <div className="App" theme={theme} style={{backgroundColor: theme.palette.info.main}}>
                     <Card sx={{display: "flex", justifyContent: "center", margin: "0 auto", p: 0, width: "50vw", background: "var(--background-gradient)"}}>
                         <Header theme={theme} loggedIn={loggedIn} />
                         

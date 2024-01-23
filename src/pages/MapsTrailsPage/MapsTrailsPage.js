@@ -1,4 +1,4 @@
-import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails";
+// import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails";
 import { useState, useEffect } from "react";
 import MapView from "../../components/MapView/MapView";
 import SearchForm from "../../components/SearchForm/SearchForm";
