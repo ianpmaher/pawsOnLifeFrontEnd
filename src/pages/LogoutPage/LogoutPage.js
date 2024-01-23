@@ -6,6 +6,7 @@ const LogoutPageContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: url("../../assets/doggo-cropped.png");
 `
 
 const LogoutPage = ({loggedIn, setLoggedIn}) => {

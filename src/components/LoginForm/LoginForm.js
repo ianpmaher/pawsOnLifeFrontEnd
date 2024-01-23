@@ -10,9 +10,8 @@ const LoginContainer = styled.div`
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
-    padding: 2rem;
+    padding: 1rem;
     border-radius: 20px;
-    height: 100%;
     gap: 0.25rem;
     background: linear-gradient(20deg, var(--orange-alloy-color) 0%, var(--champagne-color) 100%);
     position: relative;

@@ -91,13 +91,16 @@ const Nav = ({loggedIn}) => {
                     {/* everything in Box container will display unless mobile, then hamburger menu */}
                     <Box sx={{ flexGrow: 1, display: { s: "flex", md: "none" } }}>
                         <IconButton
-                            size="large"
+                            // https://mui.com/material-ui/api/icon-button/ // size prop
+                            // size="small"
+                            // trying out sx
+                            sx = {{  }}
                             aria-label="site navigation"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenMenuNav}
                         >
-                            <MenuIcon />
+                            <MenuIcon sx={{scale: "140%" }} />
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -141,7 +144,7 @@ const Nav = ({loggedIn}) => {
                     >
                         PAWS ON LIFE
                     </Link> */}
-                    <Box sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: "none", md: "block" } }}>
                         {pages.map((page) => (
                             <Link noWrap component="a" to={page.destination} href={page.destination}
                                 key={page.title}
