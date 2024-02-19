@@ -1,4 +1,4 @@
-import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails";
+// import FooterUserTrails from "../../components/FooterUserTrails/FooterUserTrails";
 import { useState, useEffect } from "react";
 import MapView from "../../components/MapView/MapView";
 import SearchForm from "../../components/SearchForm/SearchForm";
@@ -17,7 +17,7 @@ const MapsTrailsPageContainer = styled.div`
   padding: 1rem 5rem 10rem 5rem;
   max-width: 80vw;
   margin: 0 auto;
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     padding: 1rem 3rem 5rem 3rem;
     max-width: 80vw;
     background-color: var(--green-pretty-color);
@@ -99,7 +99,7 @@ const MapsTrailsPage = (props) => {
           />
         </FlexContainer>
       </div>
-      <FooterUserTrails />
+      {/* <FooterUserTrails /> */}
     </MapsTrailsPageContainer>
   );
 };

@@ -2,11 +2,11 @@ import styled from "styled-components";
 import ModalFun from "../ModalFun/ModalFun";
 
 const FooterContainer = styled.div`
-    margin: 15rem auto auto auto;
+    margin: 1rem auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
         margin: 5rem auto auto auto;
     }
 `;

@@ -1,8 +1,8 @@
 .input-area {
-    border: 2px solid #eee;
-    transition: box-shadow, border-color 0.3s;
+    transition: box-shadow, border-color 0.9s;
+    outline: transparent;
+    border: 0;
 }
 .input-area:focus {
-    border-color: var(--blue-sapphire-color);
-    box-shadow: 0 1px 0 0px #26A69B;
+    border: 0 3px 0 0px #26A69B;
 }

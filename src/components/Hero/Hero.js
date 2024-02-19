@@ -13,7 +13,7 @@ const HeroContainer = styled.div`
     flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
         flex-flow: column wrap;
         gap: 0.5rem;
     }
@@ -28,7 +28,7 @@ const HeroText = styled.p`
     text-align: center;
     padding: 0 auto;
     margin: 0 auto;
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
         font-size: 0.8rem;
     }
     @media (max-width: 1000px) {
@@ -39,12 +39,23 @@ const HeroText = styled.p`
 const Hero = (props) => {
     return (
         <HeroContainer>
-            <Card sx={{maxWidth: 345}}>
+            <Card sx={{maxWidth: 230, borderRadius: 5}}>
                 <CardMedia
-                    sx={{ height: {xs: 230, md: 250} }}
-                    image="https://i.imgur.com/9PMNlbO.png"
+                    sx={{ height: {xs: 300, md: 400} }}
+                    image="/doggo-cropped.png"
                     title="Dog Hiking"
-                    component={"img"}
+                    component="img"
+                />
+                <CardContent>
+                    <HeroText>Connecting humans and their animal companions with the natural world</HeroText>
+                </CardContent>
+            </Card>
+            <Card sx={{maxWidth: 230, borderRadius: 5}}>
+                <CardMedia
+                    sx={{ height: {xs: 300, md: 400} }}
+                    image="/doggo-hiking-phone.png"
+                    title="Dog Hiking"
+                    component="img"
                 />
                 <CardContent>
                     <HeroText>Connecting humans and their animal companions with the natural world</HeroText>
