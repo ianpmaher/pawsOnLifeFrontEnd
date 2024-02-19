@@ -34,7 +34,7 @@ const SearchForm = ({ location, setLocation, setCoordinates, map }) => {
         onPlaceChanged={onPlaceChanged}
         onLoad={onLoad}
       >
-        <input></input>
+        <input className='input-area'></input>
       </Autocomplete>
       <SearchHikingTrails
         address={address}
