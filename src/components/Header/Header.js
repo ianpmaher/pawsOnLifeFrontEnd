@@ -8,8 +8,8 @@ const HeaderContainer = styled.header`
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    margin: 0.25rem auto;
-    gap: 0.35rem;
+    margin: 0.15rem auto;
+    gap: 0.1rem;
     position: sticky;
 `;
 

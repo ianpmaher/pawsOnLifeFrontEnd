@@ -87,7 +87,7 @@ function App() {
             <ThemeProvider theme={theme}>
                 <CssBaseline enableColorScheme />
                 <div className="App" theme={theme} style={{backgroundColor: theme.palette.info.main}}>
-                    <Card sx={{display: "flex", justifyContent: "center", margin: "0 auto", p: 0, width: "50vw", background: "var(--background-gradient)"}}>
+                    <Card sx={{display: "flex", justifyContent: "center", margin: "0 auto", p: 0, width: "50vw", backgroundColor: "inherit"}}>
                         <Header theme={theme} loggedIn={loggedIn} />
                         
                         {/* <ToggleColorMode /> */}

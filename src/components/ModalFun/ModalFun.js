@@ -10,9 +10,8 @@ const ModalContainer = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
         margin: 0 auto;
-        width: 100%;
     }
 `
 const Card = styled.div`
@@ -20,13 +19,15 @@ const Card = styled.div`
     top: 5rem;
     left: 1;
     right: 1;
-    background-color: var(--blue-sapphire-color);
+    display: flex;
+    flex-flow: column wrap;
+    background: var(--background-gradient);
     padding: 1rem;
     border-radius: 20px;
-    @media (max-width: 768px) {
+    @media (max-width: 700px) {
         font-size: 0.8rem;
         height: min-content;
-        width: 20rem;
+        max-width: 20rem;
         margin: 0 auto;
     }
 `
